@@ -67,6 +67,9 @@ public:
 	void runEvent();
 	bool checkOnHours();
 	void LoadCargos();
+	void LoadVCargos();
+	void LoadSCargos();
+	void LoadNCargos();
 	/*
 	-at start ,it loads the available trucks form the file
 	-and make a list of cargos based on the TC of each type

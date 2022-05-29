@@ -1,10 +1,2 @@
-﻿  Cargo.cpp
-  Company.cpp
-  Events.cpp
-  Truck.cpp
-  main.cpp
-D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\main.cpp(95,12): warning C4101: 'p': unreferenced local variable
-D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\main.cpp(95,9): warning C4101: 'i': unreferenced local variable
-D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\main.cpp(95,6): warning C4101: 'c': unreferenced local variable
-  Generating Code...
+﻿  LINK : D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\x64\Debug\shipment.exe not found or not built by the last incremental link; performing full link
   shipment.vcxproj -> D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\x64\Debug\shipment.exe

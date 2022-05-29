@@ -44,17 +44,37 @@ void Company::simulation()
 }
 
 void Company::LoadCargos() {
-	Truck* vipT;
-	vipT = new Truck();
 
-	this->EmptyVIPTruck->peek(vipT);
-	if (vipT != nullptr) {
-		Cargo *c = new Cargo();
-		this->WaitingVipCargo->Delete(c);
-		vipT->AssignCargo(c);
-	}
+
 
 }
+
+void Company::LoadVCargos() {
+	if (EmptyVIPTruck->GetCount() != 0) {
+
+		Truck* vipT;
+		vipT = new Truck();
+		this->EmptyVIPTruck->peek(vipT);
+		if (vipT != nullptr) {
+			Cargo* c = new Cargo();
+			this->WaitingVipCargo->Delete(c);
+			vipT->AssignCargo(c);
+
+			delete c;
+			delete vipT;
+		}
+	}
+}
+
+void Company::LoadSCargos() {
+
+}
+
+void Company::LoadNCargos()
+{
+
+}
+
 
 void Company::runEvent()
 {
