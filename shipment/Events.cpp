@@ -19,7 +19,7 @@ preparationEvent::preparationEvent(string type, cTime et, int id, double distanc
 }
 
 void preparationEvent::execute() {
-//	Cargo* c = new Cargo(TYP, ET, ID, DIST, LT, COST);
+//Cargo* c = new Cargo(TYP, ET, ID, DIST, LT, COST);
 //
 //	if (c->getcargoType() == "normal") {
 //		Pcompany.AddWNC(c);	
