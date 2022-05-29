@@ -73,6 +73,8 @@ promoteEvent::promoteEvent(int id, cTime et, double extramoney) {
 //	}
 //}
 
+
+
 void Event::seteventTime(int d, int h)
 {
 	ET.Day = d;
