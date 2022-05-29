@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-//#include "Company.h"
 using namespace std;
 //a struct for time
 //struct Time {
@@ -10,7 +9,6 @@ using namespace std;
 
 class Event {
 protected:
-	//Company Pcompany;
 	string TYP;
 	double DIST;
 	int LT;
