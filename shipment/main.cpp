@@ -101,12 +101,22 @@ int main() {
 	//pq.insert(4, 700);
 	//pq.show();
 	//cout << "---------------";
+<<<<<<< Updated upstream
 	////pq.peek(C);
 	////cout << C <<endl;
 	//pq.show();
 	//cout << "---------------";
 	////pq.peek(C);
 	////cout << C << endl;
+=======
+	//pq.peek(C);
+	//cout << C <<endl;
+	//pq.Delete(C);
+	//pq.show();
+	//cout << "---------------";
+	//pq.peek(C);
+	//cout << C << endl;
+>>>>>>> Stashed changes
 	//pq.show();
 	//pq.Delete(C);
 	//pq.show();

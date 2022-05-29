@@ -20,10 +20,11 @@ preparationEvent::preparationEvent(string type, cTime et, int id, double distanc
 	ET = et;
 }
 
-void preparationEvent::execute() {
+Cargo* preparationEvent::execute() {
 	
 	Cargo* c = new Cargo(TYP, ET, ID, DIST, LT, COST);
 	//pComp->AddWNC(c);
+	return c;
 }
 
 
@@ -31,10 +32,15 @@ void preparationEvent::execute() {
 cancelEvent::cancelEvent(int id, cTime et) {
 	ET = et;  
 	ID = id;  
-};
+}
+Cargo* cancelEvent::execute()
+{
+	return nullptr;
+}
+;
 
 //template <typename T>
-//void cancelEvent::execute() {
+//Cargo* cancelEvent::execute() {
 //	//pCompany->getHeadWNC()
 //	Node<Cargo*> ptr = pCompany->getHeadWNC();
 //	LinkedList <Cargo*> ptr2 = pCompany->getWaitingNormalList();
@@ -57,9 +63,14 @@ promoteEvent::promoteEvent(int id, cTime et, double extramoney) {
 	ID = id;
 	ET = et;
 	Extramoney = extramoney;
-};
+}
+Cargo* promoteEvent::execute()
+{
+	return nullptr;
+}
+;
 
-//void promoteEvent::execute() {
+//Cargo* promoteEvent::execute() {
 //	//Node<Cargo>* head= pCompany->getHeadWNC();
 //	Node<Cargo*> ptr = pCompany->getHeadWNC();
 //	LinkedList <Cargo*> ptr2 = pCompany->getWaitingNormalList();
