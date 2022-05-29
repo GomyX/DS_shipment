@@ -101,14 +101,15 @@ int main() {
 	pq.insert(4, 700);
 	pq.show();
 	cout << "---------------";
-	//pq.peek(C);
-	//cout << C <<endl;
+	pq.peek(C);
+	cout << C <<endl;
+	pq.Delete(C);
 	pq.show();
 	cout << "---------------";
-	//pq.peek(C);
-	//cout << C << endl;
+	pq.peek(C);
+	cout << C << endl;
 	pq.show();
-	pq.Delete(C);
+	//pq.Delete(C);
 	pq.show();
 	cout << C << endl;
 	//

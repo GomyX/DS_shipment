@@ -37,13 +37,13 @@ private:
 	int AutoP, MaxW, N, S, V, NTC, STC, VTC ,J;
 	//maint_time check_up;
 
-protected:
+//protected:
 
 	
 	LinkedQueue<Event*> EventList;
 
 	//waiting cargos vip priQueue
-	priQ <Cargo*> WaitingVipCargo;
+	priQ <Cargo*>* WaitingVipCargo;
 	LinkedList <Cargo*> WaitingNormalCargo;
 	LinkedQueue <Cargo*> WaitingSpecialCargo;
 	
@@ -51,7 +51,7 @@ protected:
 	
 	LinkedQueue <Truck*> EmptyNormalTruck;
 	LinkedQueue <Truck*> EmptySpecialTruck;
-	LinkedQueue <Truck*> EmptyVIPTruck;
+	LinkedQueue <Truck*>* EmptyVIPTruck;
 
 
 	

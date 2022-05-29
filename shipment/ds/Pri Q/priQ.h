@@ -18,6 +18,7 @@ public:
 	void insert(T item, double priority);
 	void Delete(T& abc);
 	void show(); //print queue 
+	void peek(T& d);
 	//bool isEmpty() const;
 };
 
@@ -60,6 +61,19 @@ void priQ<T>::Delete(T& abc) {
 		abc = frontPtr->getItem();
 		//A = frontPtr;
 		frontPtr = frontPtr->getNext();
+		//return A->getItem();
+		//delete A;
+		//A = nullptr;
+	}
+}
+
+template <typename T>
+void priQ<T>::peek(T& abc) {
+	//Node <T>* A;
+	if (frontPtr != nullptr) {
+		abc = frontPtr->getItem();
+		//A = frontPtr;
+	
 		//return A->getItem();
 		//delete A;
 		//A = nullptr;

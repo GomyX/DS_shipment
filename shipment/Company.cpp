@@ -43,11 +43,14 @@ void Company::simulation()
 
 }
 
-//void Company::LoadCargos() {
-//	Truck* vipT;
-//	vipT = new Truck();
-//	this->WaitingVipCargo.
-//}
+void Company::LoadCargos() {
+	Truck* vipT;
+	vipT = new Truck();
+
+	this->EmptyVIPTruck->peek(vipT);
+
+
+}
 
 void Company::runEvent()
 {
