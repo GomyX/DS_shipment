@@ -109,7 +109,7 @@ int main() {
 	pq.peek(C);
 	cout << C << endl;
 	pq.show();
-	//pq.Delete(C);
+	pq.Delete(C);
 	pq.show();
 	cout << C << endl;
 	//

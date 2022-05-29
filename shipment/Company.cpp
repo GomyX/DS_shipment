@@ -48,7 +48,11 @@ void Company::LoadCargos() {
 	vipT = new Truck();
 
 	this->EmptyVIPTruck->peek(vipT);
-
+	if (vipT != nullptr) {
+		Cargo *c = new Cargo();
+		this->WaitingVipCargo->Delete(c);
+		vipT->AssignCargo(c);
+	}
 
 }
 
@@ -323,7 +327,7 @@ void Company::AddWSC(Cargo* name)
 
 void Company::AddWVC(Cargo* name )
 {
-	WaitingVipCargo.insert(name , name->calculatePriorty());
+	WaitingVipCargo->insert(name , name->calculatePriorty());
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -369,6 +373,6 @@ void Company::AddEST(Truck* name)
 void Company::AddEVT(Truck* name)
 {
 	if (name)
-		EmptyVIPTruck.enqueue(name);
+		EmptyVIPTruck->enqueue(name);
 }
 ////////////////////////////////////////////////////////

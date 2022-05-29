@@ -43,7 +43,7 @@ void priQ<T>::insert(T item, double pri) {
 	{
 		A->setNext(frontPtr);
 		frontPtr = A;
-		
+
 	}
 	else
 	{
@@ -60,17 +60,18 @@ void priQ<T>::insert(T item, double pri) {
 
 template <typename T>
 void priQ<T>::Delete(T& abc) {
-	//Node <T>* A;
-	if (frontPtr != nullptr) {
+	NodeP <T>* A;/*=new NodeP<T>()*/;
+	A = frontPtr;
+	if (A != nullptr) {
 		abc = frontPtr->getItem();
 		//A = frontPtr;
 		frontPtr = frontPtr->getNext();
 		//return A->getItem();
-		//delete A;
+		delete A;
 		//A = nullptr;
 		count = count - 1;
 	}
-	
+
 }
 
 template <typename T>
@@ -79,7 +80,7 @@ void priQ<T>::peek(T& abc) {
 	if (frontPtr != nullptr) {
 		abc = frontPtr->getItem();
 		//A = frontPtr;
-	
+
 		//return A->getItem();
 		//delete A;
 		//A = nullptr;
