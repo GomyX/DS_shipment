@@ -1,5 +1,6 @@
 #include "Cargo.h"
 #include "Events.h"
+#include "Company.h"
 #include "ds/linked list/LinkedList.h"
 #include "ds/linked list/Node.h"
 
@@ -7,6 +8,7 @@
 preparationEvent::preparationEvent()
 {
 }
+
 
 preparationEvent::preparationEvent(string type, cTime et, int id, double distance, int loadtime, double cost)
 {
@@ -19,19 +21,12 @@ preparationEvent::preparationEvent(string type, cTime et, int id, double distanc
 }
 
 void preparationEvent::execute() {
-//Cargo* c = new Cargo(TYP, ET, ID, DIST, LT, COST);
-//
-//	if (c->getcargoType() == "normal") {
-//		Pcompany.AddWNC(c);	
-//	}
-//	if (c->getcargoType() == "special") {                           <<------- there is error here 
-//
-//		Pcompany.AddWSC(c);
-//	}
-//	if (c->getcargoType() == "VIP") {
-//		Pcompany.AddWVC(c);
-//	}
+	
+	Cargo* c = new Cargo(TYP, ET, ID, DIST, LT, COST);
+	//pComp->AddWNC(c);
 }
+
+
 
 cancelEvent::cancelEvent(int id, cTime et) {
 	ET = et;  
@@ -39,18 +34,20 @@ cancelEvent::cancelEvent(int id, cTime et) {
 };
 
 //template <typename T>
-void cancelEvent::execute() {
-	////pCompany->getHeadWNC()
-	//Node<Cargo*> ptr = pCompany->getHeadWNC();
-	//LinkedList <Cargo*> ptr2 = pCompany->getWaitingNormalList();
-	//for (int i = 0; i < ptr2.getItemcount(); i++) {
-	//	if ((ptr.getItem())->getcargoID() == ID) {
-	////		ptr2.deleteNode(ptr);
-	//	}
+//void cancelEvent::execute() {
+//	//pCompany->getHeadWNC()
+//	Node<Cargo*> ptr = pCompany->getHeadWNC();
+//	LinkedList <Cargo*> ptr2 = pCompany->getWaitingNormalList();
+//	for (int i = 0; i < ptr2.getItemcount(); i++) {
+//		if ((ptr.getItem())->getcargoID() == ID) {
+//	//		ptr2.deleteNode(ptr);
+//		}
+//
+//	//	ptr = ptr->getNext();
+//	}
+//}
 
-	////	ptr = ptr->getNext();
-	//}
-}
+
 
 promoteEvent::promoteEvent()
 {
@@ -62,19 +59,19 @@ promoteEvent::promoteEvent(int id, cTime et, double extramoney) {
 	Extramoney = extramoney;
 };
 
-void promoteEvent::execute() {
-	////Node<Cargo>* head= pCompany->getHeadWNC();
-	//Node<Cargo*> ptr = pCompany->getHeadWNC();
-	//LinkedList <Cargo*> ptr2 = pCompany->getWaitingNormalList();
-
-	//for (int i = 0; i < ptr2.getItemcount(); i++) {
-	//	if ((ptr.getItem())->getcargoID() == ID) {
-	//	//	Node <Cargo>* newptr = ptr;
-	//	//	WaitingVipCargo.enqueu(newptr);
-	//	//	ptr->deletenode();
-	//	}
-	//}
-}
+//void promoteEvent::execute() {
+//	//Node<Cargo>* head= pCompany->getHeadWNC();
+//	Node<Cargo*> ptr = pCompany->getHeadWNC();
+//	LinkedList <Cargo*> ptr2 = pCompany->getWaitingNormalList();
+//
+//	for (int i = 0; i < ptr2.getItemcount(); i++) {
+//		if ((ptr.getItem())->getcargoID() == ID) {
+//		//	Node <Cargo>* newptr = ptr;
+//		//	WaitingVipCargo.enqueu(newptr);
+//		//	ptr->deletenode();
+//		}
+//	}
+//}
 
 void Event::seteventTime(int d, int h)
 {
