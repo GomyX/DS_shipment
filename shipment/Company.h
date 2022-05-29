@@ -30,15 +30,20 @@ private:
 	/// To check if any another truck is loading or not
 	/// </summary>
 
-	Truck* loadingvip = nullptr;
-	Truck* loadingspecial = nullptr;
-	Truck* loadingnormal = nullptr;
+	
 
 	int AutoP, MaxW, N, S, V, NTC, STC, VTC ,J;
 	//maint_time check_up;
 
-//protected:
+protected:
+<<<<<<< Updated upstream
 
+=======
+	
+	Truck* loadingvip = nullptr;
+	Truck* loadingspecial = nullptr;
+	Truck* loadingnormal = nullptr;
+>>>>>>> Stashed changes
 	
 	LinkedQueue<Event*> EventList;
 
@@ -125,6 +130,13 @@ public:
 	void AddMVT(Truck* name); //adding to Maintance VIP truck
 	
 
+	void AssignLoadingVIPTruck(Truck* name);
+	void AssignLoadingNormalTruck(Truck* name);
+	void AssignLoadingSpecialTruck(Truck* name);
+
+	bool checkloadvip();
+	bool checkloadnormal();
+	bool checkloadspecial();
 
 	void LoadingInFile();
 	void SavingOutfile();

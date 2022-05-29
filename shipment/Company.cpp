@@ -31,15 +31,10 @@ void Company::simulation()
 	this->incrementNow();
 	while (checkOnHours()) {
 
-
-	this->runEvent();
-
-
+		this->runEvent();
 
 	}
-	//contnue delvary and maitenace
-
-
+	//contnue delviery and maitenace
 
 }
 
@@ -99,6 +94,8 @@ bool Company::checkOnHours()
 
 
 
+
+
 void Company::LoadingInFile()
 {
 	ifstream file;
@@ -155,22 +152,22 @@ void Company::LoadingInFile()
 
 			preparationEvent* PpreparationEvent= new preparationEvent(TYP,x,ID,DIST,LT,COST);
 			EventList.enqueue(PpreparationEvent);
-			PpreparationEvent->execute();
+			AddWNC(PpreparationEvent->execute());
 
 		}
 		if (Status == "X") {
 			file >> x.Day >> drop_it >> x.Hour >> ID;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			//cancelEvent* PcancelEvent = new cancelEvent(ID , x);
-			//EventList.enqueue(PcancelEvent);
+			cancelEvent* PcancelEvent = new cancelEvent(ID , x);
+			EventList.enqueue(PcancelEvent);
 		}
 		if (Status == "P") {
 			file >> x.Day >> drop_it >> x.Hour >> ID >> extramoney;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			//promoteEvent* PpromoteEvent = new promoteEvent(ID, x, extramoney);
-			//EventList.enqueue(PpromoteEvent);
+			promoteEvent* PpromoteEvent = new promoteEvent(ID, x, extramoney);
+			EventList.enqueue(PpromoteEvent);
 		}
 	}
 }
@@ -185,7 +182,48 @@ void Company::SavingOutfile()
 	file << "---------------------------------";
 }
 
+/////////////////////////////////////////////////////////////////////////
 
+
+void Company::AssignLoadingVIPTruck(Truck* name)
+{
+	this->loadingvip = name;
+}
+
+void Company::AssignLoadingNormalTruck(Truck* name) {
+	this->loadingnormal = name;
+}
+
+void Company::AssignLoadingSpecialTruck(Truck* name) {
+	this->loadingspecial = name;
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+bool Company::checkloadvip()
+{
+	if (this->loadingvip != nullptr)
+		return true;
+	else
+		return false;
+}
+
+bool Company::checkloadspecial()
+{
+	if (this->loadingspecial != nullptr)
+		return true;
+	else
+		return false;
+}
+bool Company::checkloadnormal()
+{
+	if (this->loadingnormal != nullptr)
+		return true;
+	else
+		return false;
+}
+
+/////////////////////////////////////////////////////////////////////////
 
 //int Company::getAutoP()
 //{
