@@ -45,7 +45,7 @@ protected:
 	Truck* loadingnormal = nullptr;
 >>>>>>> Stashed changes
 	
-	LinkedQueue<Event*> EventList;
+	LinkedQueue<Event*>* EventList;
 
 	//waiting cargos vip priQueue
 	priQ <Cargo*>* WaitingVipCargo;

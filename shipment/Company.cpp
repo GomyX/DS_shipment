@@ -74,7 +74,7 @@ void Company::LoadNCargos()
 void Company::runEvent()
 {
 	Event* E = nullptr;
-	this->EventList.peek(E);
+	this->EventList->peek(E);
 	if (E != nullptr) {
 		if (E->geteventTimehour() == now.Hour && E->geteventTimeday() == now.Day) {
 			E->execute();
