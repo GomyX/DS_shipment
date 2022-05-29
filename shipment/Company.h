@@ -70,7 +70,8 @@ public:
 	void incrementNow();
 	void simulation();
 	void runEvent();
-	bool checkOffHours();
+	bool checkOnHours();
+	void LoadCargos();
 	/*
 	-at start ,it loads the available trucks form the file
 	-and make a list of cargos based on the TC of each type

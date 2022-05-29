@@ -1,6 +1,5 @@
-﻿  Cargo.cpp
-  Company.cpp
-  Events.cpp
-  main.cpp
-  Generating Code...
+﻿  main.cpp
+D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\main.cpp(95,12): warning C4101: 'p': unreferenced local variable
+D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\main.cpp(95,9): warning C4101: 'i': unreferenced local variable
+D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\main.cpp(95,6): warning C4101: 'c': unreferenced local variable
   shipment.vcxproj -> D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\x64\Debug\shipment.exe

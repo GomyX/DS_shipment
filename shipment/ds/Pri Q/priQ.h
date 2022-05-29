@@ -38,9 +38,8 @@ void priQ<T>::insert(T item, double pri) {
 	A->setpriority(pri);
 	if (frontPtr == NULL || pri > frontPtr->getpriority())
 	{
-		frontPtr = A;
 		A->setNext(frontPtr);
-		
+		frontPtr = A;
 	}
 	else
 	{
@@ -72,14 +71,14 @@ template <typename T>
 void priQ<T>::show() {
 	NodeP <T>* A;
 	A = frontPtr;
-	if (frontPtr == nullptr) {cout << "Queue is empty\n";}
-	else 
+	if (frontPtr == nullptr) { cout << "Queue is empty\n"; }
+	else
 	{
 		cout << "Queue is :\n";
 		cout << "Priority Item\n";
 		while (A != NULL)
 		{
-			cout << A->getpriority() <<" "<< A->getItem() << endl;
+			cout << A->getpriority() << " " << A->getItem() << endl;
 			A = A->getNext();
 		}
 	}

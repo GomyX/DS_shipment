@@ -7,9 +7,9 @@
 using namespace std;
 
 int main() {
-	Company m;
+	//Company m;
 
-	cout << "Omar";
+	//cout << "Omar";
 
 
 
@@ -92,23 +92,25 @@ int main() {
 
 ////PRI Q Check
 
-	//int c, i, p;
-	//int C;
-	//priQ <int> pq;
-	//pq.insert(1, 3703.7);
-	//pq.insert(2, 303.676);
-	//pq.insert(3, 523.529);
-	//pq.insert(4, 700);
-	//pq.show();
-	//pq.Delete(C);
+	int c, i, p;
+	int C;
+	priQ <int> pq;
+	pq.insert(1, 3703.7);
+	pq.insert(2, 303.676);
+	pq.insert(3, 523.529);
+	pq.insert(4, 700);
+	pq.show();
+	cout << "---------------";
+	//pq.peek(C);
 	//cout << C <<endl;
-	//pq.show();
-	//pq.Delete(C);
+	pq.show();
+	cout << "---------------";
+	//pq.peek(C);
 	//cout << C << endl;
-	//pq.show();
-	//pq.Delete(C);
-	//pq.show();
-	//cout << C << endl;
+	pq.show();
+	pq.Delete(C);
+	pq.show();
+	cout << C << endl;
 	//
 /////PRI Q check
 

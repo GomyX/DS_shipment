@@ -27,19 +27,27 @@ void Company::incrementNow()
 }
 
 void Company::simulation()
-{
+{	
 	this->incrementNow();
+	while (checkOnHours()) {
+
+
 	this->runEvent();
 
-	while (checkOffHours()) {
+
 
 	}
+	//contnue delvary and maitenace
 
 
 
 }
 
-void Company::LOad
+//void Company::LoadCargos() {
+//	Truck* vipT;
+//	vipT = new Truck();
+//	this->WaitingVipCargo.
+//}
 
 void Company::runEvent()
 {
@@ -54,12 +62,12 @@ void Company::runEvent()
 	}
 }
 
-bool Company::checkOffHours()
+bool Company::checkOnHours()
 {
-	if (now.Hour <= 6 || now.Hour >= 23)
-		return false;
-	else
+	if (now.Hour >= 6 || now.Hour <= 23)
 		return true;
+	else
+		return false;
 }
 
 
