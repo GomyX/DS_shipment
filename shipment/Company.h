@@ -36,26 +36,26 @@ private:
 	//maint_time check_up;
 
 protected:
-<<<<<<< Updated upstream
 
-=======
+
+
 	
 	Truck* loadingvip = nullptr;
 	Truck* loadingspecial = nullptr;
 	Truck* loadingnormal = nullptr;
->>>>>>> Stashed changes
+
 	
 	LinkedQueue<Event*>* EventList;
 
 	//waiting cargos vip priQueue
 	priQ <Cargo*>* WaitingVipCargo;
-	LinkedList <Cargo*> WaitingNormalCargo;
-	LinkedQueue <Cargo*> WaitingSpecialCargo;
+	LinkedList <Cargo*>* WaitingNormalCargo;
+	LinkedQueue <Cargo*>* WaitingSpecialCargo;
 	
 	LinkedQueue <Cargo*> DeliveredCargos;
 	
-	LinkedQueue <Truck*> EmptyNormalTruck;
-	LinkedQueue <Truck*> EmptySpecialTruck;
+	LinkedQueue <Truck*>* EmptyNormalTruck;
+	LinkedQueue <Truck*>* EmptySpecialTruck;
 	LinkedQueue <Truck*>* EmptyVIPTruck;
 
 	//moving trucks priQueue
@@ -71,7 +71,12 @@ public:
 	void simulation();
 	void runEvent();
 	bool checkOnHours();
-	void LoadCargos();
+
+
+	void LoadvipCargos();
+	void LoadspecialCargos();
+	void LoadnormalCargos();
+
 	void LoadVCargos();
 	void LoadSCargos();
 	void LoadNCargos();

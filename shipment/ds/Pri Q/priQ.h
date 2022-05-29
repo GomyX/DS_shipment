@@ -17,7 +17,7 @@ public:
 	int count = 0;
 	priQ();
 	void insert(T item, double priority);
-	void Delete(T& abc);
+	void dequeue(T& abc);
 	void show(); //print queue 
 	void peek(T& d);
 	//bool isEmpty() const;
@@ -59,7 +59,7 @@ void priQ<T>::insert(T item, double pri) {
 }
 
 template <typename T>
-void priQ<T>::Delete(T& abc) {
+void priQ<T>::dequeue(T& abc) {
 	NodeP <T>* A;/*=new NodeP<T>()*/;
 	A = frontPtr;
 	if (A != nullptr) {
@@ -112,3 +112,6 @@ int priQ<T>::GetCount() {
 	return this->count;
 
 }
+
+
+
