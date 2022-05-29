@@ -58,6 +58,15 @@ int Truck::getDeliv_int() const
     return deliv_int;
 }
 
+void Truck::AssignCargo(Cargo* name)
+{
+    if (CargoList.GetCount() < this->getTruck_Capacity()) {
+        CargoList.insert(name, name->calculatePriorty());
+    }
+    else
+        cout << "Truck is fully loaded";
+}
+
 //int Truck::farthest_dest()
 //{
 //    if (this->getTruck_Capacity() == 0) { return -1; }
@@ -77,10 +86,14 @@ int Truck::getDeliv_int() const
 //    return sum;
 //}
 //
+
+
 void Truck::setSpeed(int s)
 {
     this->speed = s;
 }
+
+
 //
 //int Truck::getSpeed() const
 //{

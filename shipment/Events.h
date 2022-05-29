@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Cargo.h"
 using namespace std;
 //a struct for time
 //struct Time {
@@ -9,6 +10,7 @@ using namespace std;
 
 class Event {
 protected:
+
 	string TYP;
 	double DIST;
 	int LT;
@@ -43,7 +45,7 @@ class cancelEvent : public Event
 {
 public:
 	cancelEvent(int ID, cTime et);
-	void execute()override;
+	//void execute()override;
 
 };
 
@@ -56,6 +58,6 @@ public:
 	promoteEvent();
 	promoteEvent(int ID, cTime et, double extra);
 
-	void execute()override;
+	//void execute()override;
 
 };

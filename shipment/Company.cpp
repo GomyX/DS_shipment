@@ -131,20 +131,22 @@ void Company::LoadingInFile()
 
 			preparationEvent* PpreparationEvent= new preparationEvent(TYP,x,ID,DIST,LT,COST);
 			EventList.enqueue(PpreparationEvent);
+			PpreparationEvent->execute();
+
 		}
 		if (Status == "X") {
 			file >> x.Day >> drop_it >> x.Hour >> ID;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			cancelEvent* PcancelEvent = new cancelEvent(ID , x);
-			EventList.enqueue(PcancelEvent);
+			//cancelEvent* PcancelEvent = new cancelEvent(ID , x);
+			//EventList.enqueue(PcancelEvent);
 		}
 		if (Status == "P") {
 			file >> x.Day >> drop_it >> x.Hour >> ID >> extramoney;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			promoteEvent* PpromoteEvent = new promoteEvent(ID, x, extramoney);
-			EventList.enqueue(PpromoteEvent);
+			//promoteEvent* PpromoteEvent = new promoteEvent(ID, x, extramoney);
+			//EventList.enqueue(PpromoteEvent);
 		}
 	}
 }

@@ -14,12 +14,14 @@ private:
 	NodeP<T>* frontPtr;
 
 public:
+	int count = 0;
 	priQ();
 	void insert(T item, double priority);
 	void Delete(T& abc);
 	void show(); //print queue 
 	void peek(T& d);
 	//bool isEmpty() const;
+	int GetCount();
 };
 
 
@@ -41,6 +43,7 @@ void priQ<T>::insert(T item, double pri) {
 	{
 		A->setNext(frontPtr);
 		frontPtr = A;
+		
 	}
 	else
 	{
@@ -52,6 +55,7 @@ void priQ<T>::insert(T item, double pri) {
 		A->setNext(B->getNext());
 		B->setNext(A);
 	}
+	count = count + 1;
 }
 
 template <typename T>
@@ -64,7 +68,9 @@ void priQ<T>::Delete(T& abc) {
 		//return A->getItem();
 		//delete A;
 		//A = nullptr;
+		count = count - 1;
 	}
+	
 }
 
 template <typename T>
@@ -96,5 +102,12 @@ void priQ<T>::show() {
 			A = A->getNext();
 		}
 	}
+
+}
+/////////////////////////////////////////////////////////
+
+template<typename T>
+int priQ<T>::GetCount() {
+	return this->count;
 
 }

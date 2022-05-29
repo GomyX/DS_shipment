@@ -53,11 +53,6 @@ private:
 	LinkedQueue <Truck*> EmptySpecialTruck;
 	LinkedQueue <Truck*>* EmptyVIPTruck;
 
-
-	
-
-	
-
 	//moving trucks priQueue
 	priQ <Truck*> MovingTruck;
 
