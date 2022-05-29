@@ -72,6 +72,20 @@ public:
 		}
 	}
 
+	template<typename T>
+	Node<T>* search(T val) {
+		Node<T>* ptr = Head;
+		Node<T>* ptr1 = nullptr;
+		while (ptr != nullptr) {
+			if (ptr->getItem() == val) {
+				ptr1 = ptr;
+			}
+			else { ptr = ptr->getNext(); }
+			return ptr1;
+
+		}
+	}
+
 
 
 	
