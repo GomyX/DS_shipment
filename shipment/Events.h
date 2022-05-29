@@ -26,7 +26,7 @@ public:
 	string gettype();
 	int getid();
 
-	virtual void execute() = 0;
+	virtual Cargo* execute() = 0;
 
 };
 
@@ -38,7 +38,7 @@ public:
 	
 	preparationEvent();
 	preparationEvent(string type, cTime et, int id, double distance, int loadtime, double cost);
-	void execute()override;
+	Cargo* execute()override;
 };
 
 class cancelEvent : public Event
@@ -46,7 +46,7 @@ class cancelEvent : public Event
 {
 public:
 	cancelEvent(int ID, cTime et);
-	//void execute()override;
+	Cargo* execute()override;
 
 };
 
@@ -59,6 +59,6 @@ public:
 	promoteEvent();
 	promoteEvent(int ID, cTime et, double extra);
 
-	//void execute()override;
+	Cargo* execute()override;
 
 };
