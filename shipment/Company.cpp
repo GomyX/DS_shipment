@@ -31,7 +31,9 @@ void Company::simulation()
 	this->incrementNow();
 	this->runEvent();
 
+	while (checkOffHours()) {
 
+	}
 
 
 
@@ -48,6 +50,14 @@ void Company::runEvent()
 			delete E;
 		}
 	}
+}
+
+bool Company::checkOffHours()
+{
+	if (now.Hour <= 6 || now.Hour >= 23)
+		return false;
+	else
+		return true;
 }
 
 
