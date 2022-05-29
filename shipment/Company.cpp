@@ -30,12 +30,14 @@ void Company::simulation()
 {
 	this->incrementNow();
 	this->runEvent();
-
+	
 
 
 
 
 }
+
+void Company::LOad
 
 void Company::runEvent()
 {

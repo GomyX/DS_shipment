@@ -1,7 +1,6 @@
 ﻿  Cargo.cpp
   Company.cpp
   Events.cpp
-D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\Company.h(43,14): error C2065: 'Event': undeclared identifier
-D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\Company.h(43,20): error C2059: syntax error: '>'
   main.cpp
   Generating Code...
+  shipment.vcxproj -> D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\x64\Debug\shipment.exe
