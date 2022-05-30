@@ -3,11 +3,12 @@
 #include "Company.h"
 #include"ds/stack/ArrayStack.h"
 #include"ds/queue/LinkedQueue.h"
+#include "ds/Pri Q/NodeP.h"
 #include<iostream>
 using namespace std;
 
 int main() {
-	Company m;
+	//Company m;
 
 	//cout << "Omar";
 
@@ -104,24 +105,27 @@ int main() {
 
 	////pq.peek(C);
 	////cout << C <<endl;
-	//pq.show();
+	//
 	//cout << "---------------";
 	////pq.peek(C);
 	////cout << C << endl;
+	//NodeP <int>* A = new NodeP<int>();
+	//pq.peek();
+	//pq.show();
 
-	//pq.peek(C);
-	//cout << C <<endl;
+	/*pq.peek(C);
+	cout << C <<endl;
+	pq.Delete(C);
+	pq.show();
+	cout << "---------------";
+	pq.peek(C);
+	cout << C << endl;*/
+
+	//pq.show();
 	//pq.Delete(C);
 	//pq.show();
-	//cout << "---------------";
-	//pq.peek(C);
 	//cout << C << endl;
-
-	//pq.show();
-	//pq.Delete(C);
-	//pq.show();
-	//cout << C << endl;
-	//
+	////
 /////PRI Q check
 
 }

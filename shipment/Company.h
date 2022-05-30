@@ -156,8 +156,8 @@ public:
 	void LoadingInFile();
 	void SavingOutfile();
 
-	void DeleteNCargoByID(int id);
-	void prompoteCargo(int id, double amount);
+	//void DeleteNCargoByID(int id);
+	//void prompoteCargo(int id, double amount);
 
 	//int getAutoP();
 	//int getMaxW();	
@@ -182,33 +182,33 @@ public:
 };
 
 
-void Company::DeleteNCargoByID(int id)
-{
-	Node<Cargo*>* ptr;
-	ptr = WaitingNormalCargo.getHead();
-	while (ptr) {
-		if (ptr->getItem()->getcargoID() == id) {
-			WaitingNormalCargo.DeleteNode(ptr);
-		}
-		else {
-			ptr = ptr->getNext();
-		}
-	}
-}
+//void Company::DeleteNCargoByID(int id)
+//{
+//	Node<Cargo*>* ptr;
+//	ptr = WaitingNormalCargo.getHead();
+//	while (ptr) {
+//		if (ptr->getItem()->getcargoID() == id) {
+//			WaitingNormalCargo.DeleteNode(ptr);
+//		}
+//		else {
+//			ptr = ptr->getNext();
+//		}
+//	}
+//}
 
 
-void Company::prompoteCargo(int id, double amount)
-{
-	Node<Cargo*>* ptr;
-	ptr = WaitingNormalCargo.getHead();
-	while (ptr) {
-		if (ptr->getItem()->getcargoID() == id) {
-			ptr->getItem()->setcargoType("V");
-			ptr->getItem()->setExtramoney(amount);
-			WaitingNormalCargo.DeleteNode(ptr);
-			WaitingVipCargo.insert(ptr, ptr->getItem()->calculatePriorty());
-		}
-		else
-			ptr->getNext();
-	}
-}
+//void Company::prompoteCargo(int id, double amount)
+//{
+//	Node<Cargo*>* ptr;
+//	ptr = WaitingNormalCargo.getHead();
+//	while (ptr) {
+//		if (ptr->getItem()->getcargoID() == id) {
+//			ptr->getItem()->setcargoType("V");
+//			ptr->getItem()->setExtramoney(amount);
+//			WaitingNormalCargo.DeleteNode(ptr);
+//			WaitingVipCargo.insert(ptr, ptr->getItem()->calculatePriorty());
+//		}
+//		else
+//			ptr->getNext();
+//	}
+//}

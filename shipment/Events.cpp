@@ -36,7 +36,7 @@ cancelEvent::cancelEvent(int id, cTime time, Company* p):Event(p) {
 }
 void cancelEvent::execute()
 {
-	pComp->DeleteNCargoByID(this->ID);
+	//pComp->DeleteNCargoByID(this->ID);
 
 }
 ;
@@ -68,7 +68,7 @@ promoteEvent::promoteEvent(int id, double extra, Company* p): Event(p) {
 }
 void promoteEvent::execute()
 {
-	pComp->prompoteCargo(this->ID, this->Extramoney);
+	//pComp->prompoteCargo(this->ID, this->Extramoney);
 
 }
 ;

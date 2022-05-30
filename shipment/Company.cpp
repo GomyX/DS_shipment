@@ -132,8 +132,6 @@ void Company::LoadSCargos() {
 
 void Company::LoadNCargos()
 {
-
-
 		Truck* T = nullptr;
 
 		this->EmptyNormalTruck.peek(T);
@@ -148,8 +146,6 @@ void Company::LoadNCargos()
 				delete T;
 			}
 		}
-	
-
 }
 
 
