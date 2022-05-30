@@ -262,7 +262,17 @@ void Company::SavingOutfile()
 	file.open("ayyad2.txt");
 	file << "CDT" << "\t" << "CID" << "\t" << "PT" << "\t" << "WT" << "\t" << "TID";
 
+	Cargo* c = nullptr;
 	file << "---------------------------------";
+	for (int i = 0; i < DeliveredCargos.GetCount(); i++) {
+		DeliveredCargos.dequeue(c);
+
+		file << c->getdeliverytime().Day << ":" << c->getdeliverytime().Hour << "\t"
+			<< c->getcargoID() << "\t"
+			<< c->getpreptime().Day << ":" << c->getpreptime().Day << "\t"
+			<< c->getwaitingtime().Day << ":" << c->getwaitingtime().Hour << "\t"
+			<< c->getTruckID();
+	}
 }
 
 /////////////////////////////////////////////////////////////////////////

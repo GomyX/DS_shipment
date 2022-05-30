@@ -87,13 +87,25 @@ void Truck::AssignCargo(Cargo* name)
 //}
 //
 
+int Truck::getSpeed() const
+{
+    return speed;
+}
 
 void Truck::setSpeed(int s)
 {
     this->speed = s;
 }
 
+void Truck::setTruck_ID(int id)
+{
+    ID = id;
+}
 
+int Truck::getTruck_ID() const
+{
+    return ID;
+}
 //
 //int Truck::getSpeed() const
 //{

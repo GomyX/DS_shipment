@@ -13,7 +13,7 @@ private:
 	int speed;
 	int deliv_int;
 	int J;					//num of times before maintenence  form the input file 
-	
+	int ID;
 public:
 
 	Truck();
@@ -40,7 +40,13 @@ public:
 	void AssignCargo(Cargo* name);
 
 	void setSpeed(int s);
+	int getSpeed()const;
 	//int getSpeed()const;
 
 	//Cargo getCargos(int i);
+
+	void setTruck_ID(int id);
+	int getTruck_ID()const;
+
+
 };
