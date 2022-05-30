@@ -82,7 +82,7 @@ int Cargo::calculatehours(cTime time)
 
 double Cargo::getExtramoney()
 {
-	return this->extramoney;
+	return extramoney;
 }
 
 void Cargo::setExtramoney(double amount)

@@ -17,11 +17,9 @@ private:
 	double DIST; // cargo distance in KM
 	double LT;   // time to load or unload a cargo in hours
 	double COST;
-<<<<<<< HEAD
-	
-=======
+
 	double extramoney;
->>>>>>> 72b48d3b05c08467e0ebaa7499f2ff0a600fd4fa
+
 
 protected:
 	static int ID;
@@ -66,13 +64,13 @@ public:
 	void setdeliverytime(cTime Movetime, int speed);
 	cTime getdeliverytime();
 
-<<<<<<< HEAD
+
 	static int getTotalNumCargos();
 	static int getTotalNum_VIP_Cargos();
 	static int getTotalNum_normal_Cargos();
 	static int getTotalNum_special_Cargos();
 };
-=======
 
-};
->>>>>>> 72b48d3b05c08467e0ebaa7499f2ff0a600fd4fa
+
+
+
