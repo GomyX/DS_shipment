@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-	//Company m;
+	Company m;
 
 	//cout << "Omar";
 

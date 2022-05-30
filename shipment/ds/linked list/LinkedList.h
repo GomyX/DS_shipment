@@ -73,17 +73,15 @@ public:
 	}
 
 	template<typename T>
-	Node<T>* search(T val) {
-		Node<T>* ptr = Head;
-		Node<T>* ptr1 = nullptr;
-		while (ptr != nullptr) {
-			if (ptr->getItem() == val) {
-				ptr1 = ptr;
+	bool search(T val) {
+		Node<T>* current = this->Head;
+		while (current) {
+			if (current->getItem() == val) {
+				return true;
 			}
-			else { ptr = ptr->getNext(); }
-			return ptr1;
-
+			current = current->getNext();
 		}
+		return false;
 	}
 
 
@@ -114,6 +112,33 @@ public:
 	//deletes the first node with the given value (if found) and returns true
 	//if not found, returns false
 	//Note: List is not sorted
+	template<typename T>
+	bool DeleteNode(T item) {
+		Node<T>* current = this->Head;
+		Node<T>* prev = this->Head;
+		while (current) {
+			if (current->getItem() == item) {
+				Node<T>* next = current->getNext();
+				if (current == this->Head) {
+					delete this->Head;
+					this->Head = nullptr;
+					this->Head = next;
+				}
+				else {
+					delete current;
+					current = nullptr;
+					prev->setNext(next);
+				}
+				return true;
+			}
+			else {
+				prev = current;
+			}
+			current = current->getNext();
+		}
+		return false;
+	}
+
 
 	//[7] DeleteNodes
 	//deletes ALL node with the given value (if found) and returns true

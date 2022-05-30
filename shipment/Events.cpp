@@ -10,7 +10,7 @@ preparationEvent::preparationEvent()
 }
 
 
-preparationEvent::preparationEvent(string type, cTime et, int id, double distance, int loadtime, double cost)
+preparationEvent::preparationEvent(string type, cTime et, int id, double distance, int loadtime, double cost, Company* p):Event(p)
 {
 	TYP = type;
 	ID = id;
@@ -20,22 +20,23 @@ preparationEvent::preparationEvent(string type, cTime et, int id, double distanc
 	ET = et;
 }
 
-Cargo* preparationEvent::execute() {
+void preparationEvent::execute() {
 	
 	Cargo* c = new Cargo(TYP, ET, ID, DIST, LT, COST);
 	//pComp->AddWNC(c);
-	return c;
+	//p->AddWNC(c);
+	pComp->AddWNC(c);
+	
 }
 
 
 
-cancelEvent::cancelEvent(int id, cTime et) {
-	ET = et;  
-	ID = id;  
+cancelEvent::cancelEvent(Cargo* name, Company* p):Event(p) {
+	 
 }
-Cargo* cancelEvent::execute()
+void cancelEvent::execute()
 {
-	return nullptr;
+	//pComp->
 }
 ;
 
@@ -59,14 +60,13 @@ promoteEvent::promoteEvent()
 {
 }
 
-promoteEvent::promoteEvent(int id, cTime et, double extramoney) {
-	ID = id;
-	ET = et;
+promoteEvent::promoteEvent(Cargo* name, double extramoney, Company* p): Event(p) {
+	
 	Extramoney = extramoney;
 }
-Cargo* promoteEvent::execute()
+void promoteEvent::execute()
 {
-	return nullptr;
+	
 }
 ;
 

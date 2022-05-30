@@ -43,19 +43,19 @@ void Company::simulation()
 }
 
 void Company::LoadvipCargos() {
-	if (this->EmptyVIPTruck->GetCount() != 0) {
+	if (this->EmptyVIPTruck.GetCount() != 0) {
 		LoadVCargos();
 	}
-	if (this->EmptyVIPTruck->GetCount() == 0) {
-		if (this->EmptyNormalTruck->GetCount() != 0) {
+	if (this->EmptyVIPTruck.GetCount() == 0) {
+		if (this->EmptyNormalTruck.GetCount() != 0) {
 			LoadNCargos();
 		}
 
-		if (this->EmptyNormalTruck->GetCount() == 0) {
-			if (this->EmptySpecialTruck->GetCount() != 0) {
+		if (this->EmptyNormalTruck.GetCount() == 0) {
+			if (this->EmptySpecialTruck.GetCount() != 0) {
 				LoadSCargos();
 			}
-			if (this->EmptySpecialTruck->GetCount() == 0) {
+			if (this->EmptySpecialTruck.GetCount() == 0) {
 				exit;
 			}
 		}
@@ -67,24 +67,24 @@ void Company::LoadvipCargos() {
 
 void Company::LoadspecialCargos()
 {
-	if (this->EmptySpecialTruck->GetCount() != 0) {
+	if (this->EmptySpecialTruck.GetCount() != 0) {
 		LoadSCargos();
 	}
-	if (this->EmptySpecialTruck->GetCount() == 0) {
+	if (this->EmptySpecialTruck.GetCount() == 0) {
 		exit;
 	}
 }
 
 void Company::LoadnormalCargos()
 {
-	if (EmptyNormalTruck->GetCount() != 0) {
+	if (EmptyNormalTruck.GetCount() != 0) {
 		this->LoadNCargos();
 	}
-	if (EmptyNormalTruck->GetCount() == 0) {
-		if (EmptyVIPTruck->GetCount() != 0) {
+	if (EmptyNormalTruck.GetCount() == 0) {
+		if (EmptyVIPTruck.GetCount() != 0) {
 			this->LoadVCargos();
 		}
-		if (EmptyVIPTruck->GetCount() == 0) {
+		if (EmptyVIPTruck.GetCount() == 0) {
 			exit;
 		}
 	}
@@ -95,12 +95,12 @@ void Company::LoadVCargos() {
 
 		Truck* vipT=nullptr;
 		
-		this->EmptyVIPTruck->peek(vipT);
+		this->EmptyVIPTruck.peek(vipT);
 		this->AssignLoadingVIPTruck(vipT);   
 		if (vipT->getTruck_Capacity() != 0&&this->checkloadvip()/*checkavailtruck()*/) {
 			if (vipT != nullptr) {
 				Cargo* c = new Cargo();
-				this->WaitingVipCargo->dequeue(c);
+				this->WaitingVipCargo.dequeue(c);
 				vipT->AssignCargo(c);
 
 				delete c;
@@ -115,12 +115,12 @@ void Company::LoadSCargos() {
 
 		Truck* T = nullptr;
 
-		this->EmptySpecialTruck->peek(T);
+		this->EmptySpecialTruck.peek(T);
 		this->AssignLoadingSpecialTruck(T);
 		if (T->getTruck_Capacity() != 0 && this->checkloadspecial()/*checkavailtruck()*/) {
 			if (T != nullptr) {
 				Cargo* c = nullptr;
-				this->WaitingSpecialCargo->dequeue(c);
+				this->WaitingSpecialCargo.dequeue(c);
 				T->AssignCargo(c);
 
 				delete c;
@@ -136,7 +136,7 @@ void Company::LoadNCargos()
 
 		Truck* T = nullptr;
 
-		this->EmptyNormalTruck->peek(T);
+		this->EmptyNormalTruck.peek(T);
 		this->AssignLoadingNormalTruck(T);
 		if (T->getTruck_Capacity() != 0 && this->checkloadnormal()/*checkavailtruck()*/) {
 			if (T != nullptr) {
@@ -156,11 +156,11 @@ void Company::LoadNCargos()
 void Company::runEvent()
 {
 	Event* E = nullptr;
-	this->EventList->peek(E);
+	this->EventList.peek(E);
 	if (E != nullptr) {
 		if (E->geteventTimehour() == now.Hour && E->geteventTimeday() == now.Day) {
 			E->execute();
-			EventList->dequeue(E);
+			EventList.dequeue(E);
 			delete E;
 		}
 	}
@@ -232,24 +232,25 @@ void Company::LoadingInFile()
 			cout << m->calculatePriorty() << endl;
 			AddWVC(m);*/
 
-			preparationEvent* PpreparationEvent= new preparationEvent(TYP,x,ID,DIST,LT,COST);
-			EventList->enqueue(PpreparationEvent);
-			AddWNC(PpreparationEvent->execute());
+			preparationEvent* PpreparationEvent= new preparationEvent(TYP,x,ID,DIST,LT,COST,this);
+			EventList.enqueue(PpreparationEvent);
+			PpreparationEvent->execute();
 
 		}
 		if (Status == "X") {
 			file >> x.Day >> drop_it >> x.Hour >> ID;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			cancelEvent* PcancelEvent = new cancelEvent(ID , x);
-			EventList->enqueue(PcancelEvent);
+			/*cancelEvent* PcancelEvent = new cancelEvent(ID , x,this);
+			EventList.enqueue(PcancelEvent);
+			PcancelEvent->execute();*/
 		}
 		if (Status == "P") {
 			file >> x.Day >> drop_it >> x.Hour >> ID >> extramoney;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			promoteEvent* PpromoteEvent = new promoteEvent(ID, x, extramoney);
-			EventList->enqueue(PpromoteEvent);
+			/*promoteEvent* PpromoteEvent = new promoteEvent(ID, x, extramoney,this);
+			EventList.enqueue(PpromoteEvent);*/
 		}
 	}
 }
@@ -458,16 +459,16 @@ bool Company::checkloadnormal()
 void Company::AddWNC(Cargo* name)
 {
 	if (name != nullptr)
-		WaitingNormalCargo->InsertBeg(name);
+		WaitingNormalCargo.InsertBeg(name);
 }
 void Company::AddWSC(Cargo* name)
 {
-	WaitingSpecialCargo->enqueue(name);
+	WaitingSpecialCargo.enqueue(name);
 }
 
 void Company::AddWVC(Cargo* name )
 {
-	WaitingVipCargo->insert(name , name->calculatePriorty());
+	WaitingVipCargo.insert(name , name->calculatePriorty());
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -503,16 +504,16 @@ void Company::AddMVT(Truck* name)
 void Company::AddENT(Truck* name)
 {
 	if (name)
-		EmptyNormalTruck->enqueue(name);
+		EmptyNormalTruck.enqueue(name);
 }
 void Company::AddEST(Truck* name)
 {
 	if (name)
-		EmptySpecialTruck->enqueue(name);
+		EmptySpecialTruck.enqueue(name);
 }
 void Company::AddEVT(Truck* name)
 {
 	if (name)
-		EmptyVIPTruck->enqueue(name);
+		EmptyVIPTruck.enqueue(name);
 }
 ////////////////////////////////////////////////////////

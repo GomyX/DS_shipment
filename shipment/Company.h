@@ -45,18 +45,18 @@ protected:
 	Truck* loadingnormal = nullptr;
 
 	
-	LinkedQueue<Event*>* EventList;
+	LinkedQueue<Event*> EventList;
 
 	//waiting cargos vip priQueue
-	priQ <Cargo*>* WaitingVipCargo;
-	LinkedList <Cargo*>* WaitingNormalCargo;
-	LinkedQueue <Cargo*>* WaitingSpecialCargo;
+	priQ <Cargo*> WaitingVipCargo;
+	LinkedList <Cargo*> WaitingNormalCargo;
+	LinkedQueue <Cargo*> WaitingSpecialCargo;
 	
 	LinkedQueue <Cargo*> DeliveredCargos;
 	
-	LinkedQueue <Truck*>* EmptyNormalTruck;
-	LinkedQueue <Truck*>* EmptySpecialTruck;
-	LinkedQueue <Truck*>* EmptyVIPTruck;
+	LinkedQueue <Truck*> EmptyNormalTruck;
+	LinkedQueue <Truck*> EmptySpecialTruck;
+	LinkedQueue <Truck*> EmptyVIPTruck;
 
 	//moving trucks priQueue
 	priQ <Truck*> MovingTruck;

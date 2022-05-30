@@ -2,12 +2,15 @@
 #include <iostream>
 #include "Cargo.h"
 
+
 using namespace std;
 //a struct for time
 //struct Time {
 //	int Day;
 //	int Hour;
 //};
+
+class Company;
 
 class Event {
 protected:
@@ -18,15 +21,20 @@ protected:
 	double COST;
 	cTime ET; //event time
 	int ID;	//cargo id 
+
+	Company* pComp;
 public:
-	
+	Event(){}
+	Event(Company *p) {
+		pComp = p;
+	}
 	void seteventTime(int , int);
 	int geteventTimeday();
 	int geteventTimehour();
 	string gettype();
 	int getid();
 
-	virtual Cargo* execute() = 0;
+	virtual void execute() = 0;
 
 };
 
@@ -37,16 +45,16 @@ protected:
 public:
 	
 	preparationEvent();
-	preparationEvent(string type, cTime et, int id, double distance, int loadtime, double cost);
-	Cargo* execute()override;
+	preparationEvent(string type, cTime et, int id, double distance, int loadtime, double cost, Company* p);
+	void execute()override;
 };
 
 class cancelEvent : public Event
 	// cargo must be a normal cargo
 {
 public:
-	cancelEvent(int ID, cTime et);
-	Cargo* execute()override;
+	cancelEvent(Cargo* name, Company* p);
+	void execute()override;
 
 };
 
@@ -57,8 +65,8 @@ protected:
 	double Extramoney;
 public:
 	promoteEvent();
-	promoteEvent(int ID, cTime et, double extra);
+	promoteEvent(Cargo* name, double extra, Company* p);
 
-	Cargo* execute()override;
+	void execute()override;
 
 };
