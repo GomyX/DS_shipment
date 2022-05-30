@@ -48,13 +48,10 @@ protected:
 	LinkedQueue<Event*> EventList;
 
 	//waiting cargos vip priQueue
-	priQ <Cargo*>* WaitingVipCargo;
+	priQ <Cargo*> WaitingVipCargo;
 
 	LinkedList <Cargo*> WaitingNormalCargo;
 	LinkedQueue <Cargo*> WaitingSpecialCargo;
-
-	LinkedList <Cargo*>* WaitingNormalCargo;
-	LinkedQueue <Cargo*>* WaitingSpecialCargo;
 
 	
 	LinkedQueue <Cargo*> DeliveredCargos;
@@ -159,6 +156,8 @@ public:
 	void LoadingInFile();
 	void SavingOutfile();
 
+	void DeleteNCargoByID(int id);
+	void prompoteCargo(int id, double amount);
 
 	//int getAutoP();
 	//int getMaxW();	
@@ -182,14 +181,14 @@ public:
 	
 };
 
-template<typename T>
-inline void Company::DeleteNCargoByID(int id)
+
+void Company::DeleteNCargoByID(int id)
 {
 	Node<Cargo*>* ptr;
-	ptr = WaitingNormalCargo->getHead();
+	ptr = WaitingNormalCargo.getHead();
 	while (ptr) {
 		if (ptr->getItem()->getcargoID() == id) {
-			WaitingNormalCargo->DeleteNode(ptr);
+			WaitingNormalCargo.DeleteNode(ptr);
 		}
 		else {
 			ptr = ptr->getNext();
@@ -197,18 +196,17 @@ inline void Company::DeleteNCargoByID(int id)
 	}
 }
 
-template<typename T>
-inline void Company::prompoteCargo(int id, double amount)
+
+void Company::prompoteCargo(int id, double amount)
 {
 	Node<Cargo*>* ptr;
-	ptr = WaitingNormalCargo->getHead();
+	ptr = WaitingNormalCargo.getHead();
 	while (ptr) {
 		if (ptr->getItem()->getcargoID() == id) {
 			ptr->getItem()->setcargoType("V");
 			ptr->getItem()->setExtramoney(amount);
-			WaitingNormalCargo->DeleteNode(ptr);
-			WaitingVipCargo->insert(ptr, ptr->getItem()->calculatePriorty());
-
+			WaitingNormalCargo.DeleteNode(ptr);
+			WaitingVipCargo.insert(ptr, ptr->getItem()->calculatePriorty());
 		}
 		else
 			ptr->getNext();

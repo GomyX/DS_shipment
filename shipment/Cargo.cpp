@@ -73,8 +73,7 @@ int Cargo::calculatehours(cTime time)
 {
 	return time.Day * 24 + time.Hour;
 }
-<<<<<<< Updated upstream
-=======
+
 
 double Cargo::getExtramoney()
 {
@@ -90,46 +89,7 @@ void Cargo::setExtramoney(double amount)
 
 
 
-cTime Cargo::getwaitingtime()
-{
-	return waitingtime;
-}
-void Cargo::setwaitingtime(cTime Movetime)
-{
-	int x = calculatehours(Movetime) - calculatehours(preptime);
-	waitingtime.Day = x / 24;
-	waitingtime.Hour = x & 24;
-}
 
-void Cargo::setTruckID(int id) {
-	TruckID = id;
-}
-int Cargo::getTruckID() {
-	return TruckID;
-}
-
-//
-//void Cargo::setPTruck(Truck* t) {
-//	PTruck = t;
-//}
-//Truck* Cargo::getPTruck() {
-//
-//	return PTruck;
-//}
-
-
-
-cTime Cargo::getdeliverytime()
-{
-	return deliverytime;
-}
-void Cargo::setdeliverytime(cTime Movetime, int speed)
-{
-	int x = calculatehours(Movetime) + getcargoDistance() / (speed)+getcargoLoadTime();
-
-}
-
->>>>>>> Stashed changes
 
 
 

@@ -141,7 +141,7 @@ public:
 	//if not found, returns false
 	//Note: List is not sorted
 	template<typename T>
-	Node<T*>* getHead() {
+	Node<T> *getHead() {
 		return this->Head;
 	}
 	//[8]Merge

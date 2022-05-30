@@ -59,12 +59,4 @@ public:
 	cTime getdeliverytime();
 
 
-	void setwaitingtime(cTime Movetime);
-	cTime getwaitingtime();
-	void setTruckID(int id);
-	int getTruckID();
-	/*void setPTruck(Truck *t);
-	Truck* getPTruck();*/
-	void setdeliverytime(cTime Movetime, int speed);
-	cTime getdeliverytime();
 };

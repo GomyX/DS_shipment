@@ -110,11 +110,12 @@ int Truck::getTruck_ID() const
 double Truck::calculateP()
 {
 
-    Cargo* t;
-    double P;
-    for (int i = 0; i < CargoList->GetCount(); i++) {
-        t = CargoList->peek();
-    }
+    //Cargo* t;
+    //double P;
+    //for (int i = 0; i < CargoList->GetCount(); i++) {
+    //    t = CargoList->peek();
+    //}
+    return 0.0;
 }
 
 //

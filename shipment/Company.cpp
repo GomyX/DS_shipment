@@ -174,12 +174,6 @@ bool Company::checkOnHours()
 		return false;
 }
 
-LinkedList<Cargo*>* Company::getWaitingNCargo()
-{
-	return WaitingNormalCargo;
-}
-
-
 
 
 
@@ -495,11 +489,11 @@ void Company::setAutoP(int hour) {
 void Company::AddWNC(Cargo* name)
 {
 	if (name != nullptr)
-		WaitingNormalCargo->InsertBeg(name);
+		WaitingNormalCargo.InsertBeg(name);
 }
 void Company::AddWSC(Cargo* name)
 {
-	WaitingSpecialCargo->enqueue(name);
+	WaitingSpecialCargo.enqueue(name);
 }
 
 void Company::AddWVC(Cargo* name )
