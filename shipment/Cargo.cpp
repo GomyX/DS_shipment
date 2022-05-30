@@ -80,6 +80,23 @@ int Cargo::calculatehours(cTime time)
 }
 
 
+double Cargo::getExtramoney()
+{
+	return this->extramoney;
+}
+
+void Cargo::setExtramoney(double amount)
+{
+	this->extramoney = amount;
+}
+
+
+
+
+
+
+
+
 
 
 

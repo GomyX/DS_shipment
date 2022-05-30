@@ -31,12 +31,13 @@ void preparationEvent::execute() {
 
 
 
-cancelEvent::cancelEvent(Cargo* name, Company* p):Event(p) {
+cancelEvent::cancelEvent(int id, cTime time, Company* p):Event(p) {
 	 
 }
 void cancelEvent::execute()
 {
-	//pComp->
+	pComp->DeleteNCargoByID(this->ID);
+
 }
 ;
 
@@ -60,13 +61,15 @@ promoteEvent::promoteEvent()
 {
 }
 
-promoteEvent::promoteEvent(Cargo* name, double extramoney, Company* p): Event(p) {
-	
-	Extramoney = extramoney;
+promoteEvent::promoteEvent(int id, double extra, Company* p): Event(p) {
+	this->ID = id;
+	Extramoney = extra;
+
 }
 void promoteEvent::execute()
 {
-	
+	pComp->prompoteCargo(this->ID, this->Extramoney);
+
 }
 ;
 
@@ -88,8 +91,8 @@ void promoteEvent::execute()
 
 void Event::seteventTime(int d, int h)
 {
-	ET.Day = d;
-	ET.Hour = h;
+	this->ET.Day = d;
+	this->ET.Hour = h;
 }
 
 int Event::geteventTimeday()

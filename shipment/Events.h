@@ -53,8 +53,10 @@ class cancelEvent : public Event
 	// cargo must be a normal cargo
 {
 public:
-	cancelEvent(Cargo* name, Company* p);
+
+	cancelEvent(int id,cTime time, Company* p);
 	void execute()override;
+
 
 };
 
@@ -65,8 +67,7 @@ protected:
 	double Extramoney;
 public:
 	promoteEvent();
-	promoteEvent(Cargo* name, double extra, Company* p);
-
+	promoteEvent(int id, double extra, Company* p);
 	void execute()override;
 
 };

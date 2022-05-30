@@ -177,7 +177,6 @@ bool Company::checkOnHours()
 
 
 
-
 void Company::LoadingInFile()
 {
 	ifstream file;
@@ -194,6 +193,8 @@ void Company::LoadingInFile()
 
 	int AutoP, MaxW;
 	file >> AutoP >> MaxW; //reading the promotion time and the maximum wait time
+	setMaxW(MaxW);
+	setAutoP(AutoP);
 	
 
 	for (int i = 0; i < N; i++) {
@@ -241,9 +242,10 @@ void Company::LoadingInFile()
 			file >> x.Day >> drop_it >> x.Hour >> ID;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			/*cancelEvent* PcancelEvent = new cancelEvent(ID , x,this);
+			cancelEvent* PcancelEvent = new cancelEvent(ID , x,this);
 			EventList.enqueue(PcancelEvent);
-			PcancelEvent->execute();*/
+			PcancelEvent->execute();
+
 		}
 		if (Status == "P") {
 			file >> x.Day >> drop_it >> x.Hour >> ID >> extramoney;
@@ -337,6 +339,24 @@ bool Company::checkloadnormal()
 }
 
 /////////////////////////////////////////////////////////////////////////
+
+int Company::getMaxW()
+{
+	return this->MaxW;
+}
+
+void Company::setMaxW(int max) {
+	this->MaxW = max;
+}
+
+int Company::getAutoP()
+{
+	return this->AutoP;
+}
+
+void Company::setAutoP(int hour) {
+	this->AutoP = hour;
+}
 
 //int Company::getAutoP()
 //{

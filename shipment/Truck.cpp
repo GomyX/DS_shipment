@@ -72,8 +72,8 @@ int Truck::getDeliv_int() const
 
 void Truck::AssignCargo(Cargo* name)
 {
-    if (CargoList.GetCount() < this->getTruck_Capacity()) {
-        CargoList.insert(name, name->calculatePriorty());
+    if (CargoList->GetCount() < this->getTruck_Capacity()) {
+        CargoList->insert(name, name->calculatePriorty());
     }
     else
         cout << "Truck is fully loaded";
@@ -114,10 +114,22 @@ void Truck::setTruck_ID(int id)
     ID = id;
 }
 
+
 int Truck::getTruck_ID() const
 {
     return ID;
 }
+double Truck::calculateP()
+{
+
+    //Cargo* t;
+    //double P;
+    //for (int i = 0; i < CargoList->GetCount(); i++) {
+    //    t = CargoList->peek();
+    //}
+    return 0.0;
+}
+
 //
 //int Truck::getSpeed() const
 //{

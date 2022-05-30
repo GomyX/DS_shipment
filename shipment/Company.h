@@ -49,8 +49,10 @@ protected:
 
 	//waiting cargos vip priQueue
 	priQ <Cargo*> WaitingVipCargo;
+
 	LinkedList <Cargo*> WaitingNormalCargo;
 	LinkedQueue <Cargo*> WaitingSpecialCargo;
+
 	
 	LinkedQueue <Cargo*> DeliveredCargos;
 	
@@ -66,6 +68,7 @@ protected:
 	LinkedQueue <Truck*> MaintVIPTruck;
 
 public:
+	
 	Company();
 	void incrementNow();
 	void simulation();
@@ -115,6 +118,13 @@ public:
 	////Node<Cargo*> getHeadWNC();
 	////LinkedList <Cargo*>getWaitingNormalList();
 
+
+	int getMaxW();
+	void setMaxW(int max);
+
+	int getAutoP();
+	void setAutoP(int hour);
+
 	void AddWNC(Cargo* name); //adding to waiting normal waiting list
 	void AddWSC(Cargo* name); //adding to waiting special waiting list
 	void AddWVC(Cargo* name); //adding to waiting vip cargo list
@@ -146,6 +156,8 @@ public:
 	void LoadingInFile();
 	void SavingOutfile();
 
+	void DeleteNCargoByID(int id);
+	void prompoteCargo(int id, double amount);
 
 	//int getAutoP();
 	//int getMaxW();	
@@ -172,3 +184,34 @@ public:
 	int calculatehours(cTime time);
 };
 
+
+void Company::DeleteNCargoByID(int id)
+{
+	Node<Cargo*>* ptr;
+	ptr = WaitingNormalCargo.getHead();
+	while (ptr) {
+		if (ptr->getItem()->getcargoID() == id) {
+			WaitingNormalCargo.DeleteNode(ptr);
+		}
+		else {
+			ptr = ptr->getNext();
+		}
+	}
+}
+
+
+void Company::prompoteCargo(int id, double amount)
+{
+	Node<Cargo*>* ptr;
+	ptr = WaitingNormalCargo.getHead();
+	while (ptr) {
+		if (ptr->getItem()->getcargoID() == id) {
+			ptr->getItem()->setcargoType("V");
+			ptr->getItem()->setExtramoney(amount);
+			WaitingNormalCargo.DeleteNode(ptr);
+			WaitingVipCargo.insert(ptr, ptr->getItem()->calculatePriorty());
+		}
+		else
+			ptr->getNext();
+	}
+}
