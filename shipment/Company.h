@@ -36,32 +36,32 @@ private:
 	//maint_time check_up;
 
 protected:
-<<<<<<< Updated upstream
 
-=======
+
+
 	
 	Truck* loadingvip = nullptr;
 	Truck* loadingspecial = nullptr;
 	Truck* loadingnormal = nullptr;
->>>>>>> Stashed changes
+
 	
 	LinkedQueue<Event*> EventList;
 
 	//waiting cargos vip priQueue
 	priQ <Cargo*>* WaitingVipCargo;
-<<<<<<< Updated upstream
+
 	LinkedList <Cargo*> WaitingNormalCargo;
 	LinkedQueue <Cargo*> WaitingSpecialCargo;
-=======
+
 	LinkedList <Cargo*>* WaitingNormalCargo;
 	LinkedQueue <Cargo*>* WaitingSpecialCargo;
->>>>>>> Stashed changes
+
 	
 	LinkedQueue <Cargo*> DeliveredCargos;
 	
 	LinkedQueue <Truck*> EmptyNormalTruck;
 	LinkedQueue <Truck*> EmptySpecialTruck;
-	LinkedQueue <Truck*>* EmptyVIPTruck;
+	LinkedQueue <Truck*> EmptyVIPTruck;
 
 	//moving trucks priQueue
 	priQ <Truck*> MovingTruck;
@@ -77,11 +77,7 @@ public:
 	void simulation();
 	void runEvent();
 	bool checkOnHours();
-<<<<<<< Updated upstream
-	void LoadCargos();
-=======
 
-	LinkedList<Cargo*>* getWaitingNCargo();
 
 	void LoadvipCargos();
 	void LoadspecialCargos();
@@ -90,21 +86,6 @@ public:
 	void LoadVCargos();
 	void LoadSCargos();
 	void LoadNCargos();
-	
-	Cargo* getCargo(int id) {
-		
-	}
-	template<typename T>
-	void DeleteNCargoByID(int id);
-	template<typename T>
-	void prompoteCargo(int id, double amount);
-
-	void Nmovetomaintance();
-	void Smovetomaintance();
-	void Vmovetomaintance();
-
-
->>>>>>> Stashed changes
 	/*
 	-at start ,it loads the available trucks form the file
 	-and make a list of cargos based on the TC of each type

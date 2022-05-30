@@ -202,9 +202,9 @@ LinkedQueue<T>::~LinkedQueue()
 	//cout<<"\nEnding LinkedQueue destructor..."<<endl;
 }
 
-<<<<<<< Updated upstream
+
 #endif
-=======
+
 #endif
 
 
@@ -234,4 +234,4 @@ LinkedQueue<T>::~LinkedQueue()
 //	}
 //	return false;
 //}
->>>>>>> Stashed changes
+

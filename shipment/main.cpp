@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-	//Company m;
+	Company m;
 
 	//cout << "Omar";
 
@@ -78,8 +78,8 @@ int main() {
 //cout << x << " ";
 //
 //cout << endl;
-//
-////Write code to test empty case and to test peekFront function
+
+//Write code to test empty case and to test peekFront function
 //return 0;
 //
 
@@ -101,14 +101,14 @@ int main() {
 	//pq.insert(4, 700);
 	//pq.show();
 	//cout << "---------------";
-<<<<<<< Updated upstream
+
 	////pq.peek(C);
 	////cout << C <<endl;
 	//pq.show();
 	//cout << "---------------";
 	////pq.peek(C);
 	////cout << C << endl;
-=======
+
 	//pq.peek(C);
 	//cout << C <<endl;
 	//pq.Delete(C);
@@ -116,7 +116,7 @@ int main() {
 	//cout << "---------------";
 	//pq.peek(C);
 	//cout << C << endl;
->>>>>>> Stashed changes
+
 	//pq.show();
 	//pq.Delete(C);
 	//pq.show();

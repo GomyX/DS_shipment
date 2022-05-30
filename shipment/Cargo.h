@@ -21,7 +21,9 @@ private:
 
 protected:
 	static int ID;
-
+	int TruckID;
+	cTime waitingtime;
+	cTime deliverytime;
 public:
 	Cargo();
 	Cargo(string TYP, cTime time, int ID, double DIST, double LT, double COST);
@@ -41,8 +43,7 @@ public:
 	cTime getpreptime();
 	double calculatePriorty();
 	int calculatehours(cTime time);
-<<<<<<< Updated upstream
-=======
+
 	double getExtramoney();
 
 	void setExtramoney(double amount);
@@ -56,5 +57,14 @@ public:
 	Truck* getPTruck();*/
 	void setdeliverytime(cTime Movetime, int speed);
 	cTime getdeliverytime();
->>>>>>> Stashed changes
+
+
+	void setwaitingtime(cTime Movetime);
+	cTime getwaitingtime();
+	void setTruckID(int id);
+	int getTruckID();
+	/*void setPTruck(Truck *t);
+	Truck* getPTruck();*/
+	void setdeliverytime(cTime Movetime, int speed);
+	cTime getdeliverytime();
 };
