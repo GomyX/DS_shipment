@@ -29,13 +29,23 @@ Cargo* preparationEvent::execute() {
 
 
 
+<<<<<<< Updated upstream
 cancelEvent::cancelEvent(int id, cTime et) {
 	ET = et;  
 	ID = id;  
+=======
+cancelEvent::cancelEvent(int id,cTime time ,Company* p):Event(p) {
+	this->ID = id;
+	this->ET = time;
+>>>>>>> Stashed changes
 }
 Cargo* cancelEvent::execute()
 {
+<<<<<<< Updated upstream
 	return nullptr;
+=======
+	pComp->DeleteNCargoByID(this->ID);
+>>>>>>> Stashed changes
 }
 ;
 
@@ -59,14 +69,24 @@ promoteEvent::promoteEvent()
 {
 }
 
+<<<<<<< Updated upstream
 promoteEvent::promoteEvent(int id, cTime et, double extramoney) {
 	ID = id;
 	ET = et;
 	Extramoney = extramoney;
+=======
+promoteEvent::promoteEvent(int id, double extra, Company* p): Event(p) {
+	this->ID = id;
+	Extramoney = extra;
+>>>>>>> Stashed changes
 }
 Cargo* promoteEvent::execute()
 {
+<<<<<<< Updated upstream
 	return nullptr;
+=======
+	pComp->prompoteCargo(this->ID, this->Extramoney);
+>>>>>>> Stashed changes
 }
 ;
 

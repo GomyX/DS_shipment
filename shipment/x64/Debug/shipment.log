@@ -1,6 +1,41 @@
 ﻿  Cargo.cpp
+<<<<<<< Updated upstream
   Company.cpp
   Events.cpp
+=======
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(153,9): error C3861: 'WaitingNormalCargo': identifier not found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(151,7): message : This diagnostic occurred in the compiler generated function 'void LinkedList<T>::DeleteNCargoByID(int)'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(165): message : see reference to class template instantiation 'LinkedList<T>' being compiled
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(156,5): error C3861: 'WaitingNormalCargo': identifier not found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(151,7): message : This diagnostic occurred in the compiler generated function 'void LinkedList<T>::DeleteNCargoByID(int)'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Cargo.cpp(126,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Company.cpp
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(153,9): error C3861: 'WaitingNormalCargo': identifier not found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(151,7): message : This diagnostic occurred in the compiler generated function 'void LinkedList<T>::DeleteNCargoByID(int)'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(165): message : see reference to class template instantiation 'LinkedList<T>' being compiled
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(156,5): error C3861: 'WaitingNormalCargo': identifier not found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(151,7): message : This diagnostic occurred in the compiler generated function 'void LinkedList<T>::DeleteNCargoByID(int)'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Company.cpp(59,5): warning C4551: function call missing argument list
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Company.cpp(74,3): warning C4551: function call missing argument list
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Company.cpp(88,4): warning C4551: function call missing argument list
+  Events.cpp
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(153,9): error C3861: 'WaitingNormalCargo': identifier not found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(151,7): message : This diagnostic occurred in the compiler generated function 'void LinkedList<T>::DeleteNCargoByID(int)'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(165): message : see reference to class template instantiation 'LinkedList<T>' being compiled
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(156,5): error C3861: 'WaitingNormalCargo': identifier not found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(151,7): message : This diagnostic occurred in the compiler generated function 'void LinkedList<T>::DeleteNCargoByID(int)'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Events.cpp(40,9): error C2039: 'DeleteNCargoByID': is not a member of 'Company'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Company.h(18): message : see declaration of 'Company'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Events.cpp(70,7): error C2672: 'Company::prompoteCargo': no matching overloaded function found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Events.cpp(70,7): error C2783: 'Cargo *Company::prompoteCargo(int,double)': could not deduce template argument for 'T'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\Company.h(91): message : see declaration of 'Company::prompoteCargo'
+  main.cpp
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(153,9): error C3861: 'WaitingNormalCargo': identifier not found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(151,7): message : This diagnostic occurred in the compiler generated function 'void LinkedList<T>::DeleteNCargoByID(int)'
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(165): message : see reference to class template instantiation 'LinkedList<T>' being compiled
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(156,5): error C3861: 'WaitingNormalCargo': identifier not found
+C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\shipment\ds\linked list\LinkedList.h(151,7): message : This diagnostic occurred in the compiler generated function 'void LinkedList<T>::DeleteNCargoByID(int)'
+>>>>>>> Stashed changes
   Truck.cpp
   main.cpp
 D:\zewail\Cie 11\data structure\project\New folder\DS_shipment\shipment\main.cpp(95,12): warning C4101: 'p': unreferenced local variable

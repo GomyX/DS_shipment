@@ -45,8 +45,13 @@ class cancelEvent : public Event
 	// cargo must be a normal cargo
 {
 public:
+<<<<<<< Updated upstream
 	cancelEvent(int ID, cTime et);
 	Cargo* execute()override;
+=======
+	cancelEvent(int id,cTime time, Company* p);
+	void execute()override;
+>>>>>>> Stashed changes
 
 };
 
@@ -57,7 +62,11 @@ protected:
 	double Extramoney;
 public:
 	promoteEvent();
+<<<<<<< Updated upstream
 	promoteEvent(int ID, cTime et, double extra);
+=======
+	promoteEvent(int id, double extra, Company* p);
+>>>>>>> Stashed changes
 
 	Cargo* execute()override;
 

@@ -51,6 +51,97 @@ void Company::LoadCargos() {
 
 }
 
+<<<<<<< Updated upstream
+=======
+void Company::LoadspecialCargos()
+{
+	if (this->EmptySpecialTruck.GetCount() != 0) {
+		LoadSCargos();
+	}
+	if (this->EmptySpecialTruck.GetCount() == 0) {
+		exit;
+	}
+}
+
+void Company::LoadnormalCargos()
+{
+	if (EmptyNormalTruck.GetCount() != 0) {
+		this->LoadNCargos();
+	}
+	if (EmptyNormalTruck.GetCount() == 0) {
+		if (EmptyVIPTruck.GetCount() != 0) {
+			this->LoadVCargos();
+		}
+		if (EmptyVIPTruck.GetCount() == 0) {
+			exit;
+		}
+	}
+}
+
+void Company::LoadVCargos() {
+
+
+		Truck* vipT=nullptr;
+		
+		this->EmptyVIPTruck.peek(vipT);
+		this->AssignLoadingVIPTruck(vipT);   
+		if (vipT->getTruck_Capacity() != 0&&this->checkloadvip()/*checkavailtruck()*/) {
+			if (vipT != nullptr) {
+				Cargo* c = new Cargo();
+				this->WaitingVipCargo->dequeue(c);
+				vipT->AssignCargo(c);
+
+				delete c;
+				delete vipT;
+			}
+		}
+	
+}
+
+void Company::LoadSCargos() {
+	
+
+		Truck* T = nullptr;
+
+		this->EmptySpecialTruck.peek(T);
+		this->AssignLoadingSpecialTruck(T);
+		if (T->getTruck_Capacity() != 0 && this->checkloadspecial()/*checkavailtruck()*/) {
+			if (T != nullptr) {
+				Cargo* c = nullptr;
+				this->WaitingSpecialCargo->dequeue(c);
+				T->AssignCargo(c);
+
+				delete c;
+				delete T;
+			}
+		}
+	
+}
+
+void Company::LoadNCargos()
+{
+
+
+		Truck* T = nullptr;
+
+		this->EmptyNormalTruck.peek(T);
+		this->AssignLoadingNormalTruck(T);
+		if (T->getTruck_Capacity() != 0 && this->checkloadnormal()/*checkavailtruck()*/) {
+			if (T != nullptr) {
+				Cargo* c = new Cargo();
+				this->WaitingNormalCargo;/*->search();*/
+				T->AssignCargo(c);
+
+				delete c;
+				delete T;
+			}
+		}
+	
+
+}
+
+
+>>>>>>> Stashed changes
 void Company::runEvent()
 {
 	Event* E = nullptr;
@@ -70,6 +161,11 @@ bool Company::checkOnHours()
 		return true;
 	else
 		return false;
+}
+
+LinkedList<Cargo*>* Company::getWaitingNCargo()
+{
+	return WaitingNormalCargo;
 }
 
 
@@ -92,6 +188,8 @@ void Company::LoadingInFile()
 
 	int AutoP, MaxW;
 	file >> AutoP >> MaxW; //reading the promotion time and the maximum wait time
+	setMaxW(MaxW);
+	setAutoP(AutoP);
 	
 
 	for (int i = 0; i < N; i++) {
@@ -139,8 +237,14 @@ void Company::LoadingInFile()
 			file >> x.Day >> drop_it >> x.Hour >> ID;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
+<<<<<<< Updated upstream
 			cancelEvent* PcancelEvent = new cancelEvent(ID , x);
 			EventList.enqueue(PcancelEvent);
+=======
+			cancelEvent* PcancelEvent = new cancelEvent(ID , x,this);
+			EventList.enqueue(PcancelEvent);
+			PcancelEvent->execute();
+>>>>>>> Stashed changes
 		}
 		if (Status == "P") {
 			file >> x.Day >> drop_it >> x.Hour >> ID >> extramoney;
@@ -204,6 +308,24 @@ bool Company::checkloadnormal()
 }
 
 /////////////////////////////////////////////////////////////////////////
+
+int Company::getMaxW()
+{
+	return this->MaxW;
+}
+
+void Company::setMaxW(int max) {
+	this->MaxW = max;
+}
+
+int Company::getAutoP()
+{
+	return this->AutoP;
+}
+
+void Company::setAutoP(int hour) {
+	this->AutoP = hour;
+}
 
 //int Company::getAutoP()
 //{
@@ -356,11 +478,11 @@ bool Company::checkloadnormal()
 void Company::AddWNC(Cargo* name)
 {
 	if (name != nullptr)
-		WaitingNormalCargo.InsertBeg(name);
+		WaitingNormalCargo->InsertBeg(name);
 }
 void Company::AddWSC(Cargo* name)
 {
-	WaitingSpecialCargo.enqueue(name);
+	WaitingSpecialCargo->enqueue(name);
 }
 
 void Company::AddWVC(Cargo* name )

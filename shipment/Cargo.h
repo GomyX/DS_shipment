@@ -17,6 +17,7 @@ private:
 	double DIST; // cargo distance in KM
 	double LT;   // time to load or unload a cargo in hours
 	double COST;
+	double extramoney;
 
 protected:
 	static int ID;
@@ -40,4 +41,20 @@ public:
 	cTime getpreptime();
 	double calculatePriorty();
 	int calculatehours(cTime time);
+<<<<<<< Updated upstream
+=======
+	double getExtramoney();
+
+	void setExtramoney(double amount);
+	
+
+	void setwaitingtime(cTime Movetime);
+	cTime getwaitingtime();
+	void setTruckID(int id);
+	int getTruckID();
+	/*void setPTruck(Truck *t);
+	Truck* getPTruck();*/
+	void setdeliverytime(cTime Movetime, int speed);
+	cTime getdeliverytime();
+>>>>>>> Stashed changes
 };

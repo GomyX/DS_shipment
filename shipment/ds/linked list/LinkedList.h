@@ -86,10 +86,6 @@ public:
 		}
 	}
 
-
-
-	
-
 	////////////////     Requirements   ///////////////////
 	//
 	// Implement the following member functions
@@ -119,11 +115,14 @@ public:
 	//deletes ALL node with the given value (if found) and returns true
 	//if not found, returns false
 	//Note: List is not sorted
-
+	template<typename T>
+	Node<T*>* getHead() {
+		return this->Head;
+	}
 	//[8]Merge
 	//Merges the current list to another list L by making the last Node in the current list 
 	//point to the first Node in list L
-
+	
 	//[9] Reverse
 	//Reverses the linked list (without allocating any new Nodes)
 };

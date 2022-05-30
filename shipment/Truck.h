@@ -21,7 +21,7 @@ public:
 
 
 	//priQueue for cargos
-	priQ <Cargo*> CargoList;
+	priQ <Cargo*>* CargoList;
 
 	void setTruck_TYP(string t);
 	string getTruck_TYP()const;
@@ -43,4 +43,13 @@ public:
 	//int getSpeed()const;
 
 	//Cargo getCargos(int i);
+<<<<<<< Updated upstream
+=======
+
+	void setTruck_ID(int id);
+	int getTruck_ID()const;
+
+	double calculateP();
+
+>>>>>>> Stashed changes
 };

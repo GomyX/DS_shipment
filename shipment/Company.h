@@ -49,8 +49,13 @@ protected:
 
 	//waiting cargos vip priQueue
 	priQ <Cargo*>* WaitingVipCargo;
+<<<<<<< Updated upstream
 	LinkedList <Cargo*> WaitingNormalCargo;
 	LinkedQueue <Cargo*> WaitingSpecialCargo;
+=======
+	LinkedList <Cargo*>* WaitingNormalCargo;
+	LinkedQueue <Cargo*>* WaitingSpecialCargo;
+>>>>>>> Stashed changes
 	
 	LinkedQueue <Cargo*> DeliveredCargos;
 	
@@ -66,12 +71,40 @@ protected:
 	LinkedQueue <Truck*> MaintVIPTruck;
 
 public:
+	
 	Company();
 	void incrementNow();
 	void simulation();
 	void runEvent();
 	bool checkOnHours();
+<<<<<<< Updated upstream
 	void LoadCargos();
+=======
+
+	LinkedList<Cargo*>* getWaitingNCargo();
+
+	void LoadvipCargos();
+	void LoadspecialCargos();
+	void LoadnormalCargos();
+
+	void LoadVCargos();
+	void LoadSCargos();
+	void LoadNCargos();
+	
+	Cargo* getCargo(int id) {
+		
+	}
+	template<typename T>
+	void DeleteNCargoByID(int id);
+	template<typename T>
+	void prompoteCargo(int id, double amount);
+
+	void Nmovetomaintance();
+	void Smovetomaintance();
+	void Vmovetomaintance();
+
+
+>>>>>>> Stashed changes
 	/*
 	-at start ,it loads the available trucks form the file
 	-and make a list of cargos based on the TC of each type
@@ -106,6 +139,13 @@ public:
 
 	////Node<Cargo*> getHeadWNC();
 	////LinkedList <Cargo*>getWaitingNormalList();
+
+
+	int getMaxW();
+	void setMaxW(int max);
+
+	int getAutoP();
+	void setAutoP(int hour);
 
 	void AddWNC(Cargo* name); //adding to waiting normal waiting list
 	void AddWSC(Cargo* name); //adding to waiting special waiting list
@@ -161,3 +201,35 @@ public:
 	
 };
 
+template<typename T>
+inline void Company::DeleteNCargoByID(int id)
+{
+	Node<Cargo*>* ptr;
+	ptr = WaitingNormalCargo->getHead();
+	while (ptr) {
+		if (ptr->getItem()->getcargoID() == id) {
+			WaitingNormalCargo->DeleteNode(ptr);
+		}
+		else {
+			ptr = ptr->getNext();
+		}
+	}
+}
+
+template<typename T>
+inline void Company::prompoteCargo(int id, double amount)
+{
+	Node<Cargo*>* ptr;
+	ptr = WaitingNormalCargo->getHead();
+	while (ptr) {
+		if (ptr->getItem()->getcargoID() == id) {
+			ptr->getItem()->setcargoType("V");
+			ptr->getItem()->setExtramoney(amount);
+			WaitingNormalCargo->DeleteNode(ptr);
+			WaitingVipCargo->insert(ptr, ptr->getItem()->calculatePriorty());
+
+		}
+		else
+			ptr->getNext();
+	}
+}
