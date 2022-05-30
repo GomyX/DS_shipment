@@ -14,8 +14,15 @@ private:
 	int deliv_int;
 	int J;					//num of times before maintenence  form the input file 
 	int ID;
-public:
 
+
+	int static total_number_of_trucks;
+	int static total_number_of_normaltrucks;
+	int static total_number_of_specialtrucks;
+	int static total_number_of_VIPtrucks;
+
+public:
+	
 	Truck();
 	Truck(string TYP,int maint_time,int CPT, int speed, int J);
 
@@ -47,6 +54,15 @@ public:
 
 	void setTruck_ID(int id);
 	int getTruck_ID()const;
+
+
+
+
+
+	static int get_num_Of_normalTrucks();
+	static int get_num_Of_specialTrucks();
+	static int get_num_Of_VIPTrucks();
+	static int get_total_num_Of_Trucks();
 
 
 };

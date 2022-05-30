@@ -1,5 +1,13 @@
 #include "Truck.h"
 
+int Truck::total_number_of_normaltrucks = 0;
+int Truck::total_number_of_specialtrucks = 0;
+int Truck::total_number_of_VIPtrucks = 0;
+
+int Truck::total_number_of_trucks = 0;
+
+
+
 Truck::Truck()
 {
 }
@@ -12,6 +20,10 @@ Truck::Truck(string TYP,int maint_time, int CPT, int speed, int J)
     this->setSpeed(speed);
     this->J = J;
    // Cargo c[getTruck_Capacity()];
+    total_number_of_trucks++;
+    if (TYP == "N") { total_number_of_normaltrucks++; }
+    if (TYP == "S") { total_number_of_specialtrucks++; }
+    if (TYP == "V") { total_number_of_VIPtrucks++; }
 }
 
 void Truck::setTruck_TYP(string t)
@@ -116,6 +128,23 @@ int Truck::getTruck_ID() const
 //{
 //    return c[i];
 //}
+
+ int  Truck::get_num_Of_normalTrucks ()
+{
+    return total_number_of_normaltrucks;
+}
+int  Truck:: get_num_Of_specialTrucks()
+{
+    return total_number_of_specialtrucks;
+}
+int Truck::get_num_Of_VIPTrucks() 
+{
+    return total_number_of_VIPtrucks ;
+}
+int Truck::get_total_num_Of_Trucks() 
+{
+    return total_number_of_trucks ;
+}
 
 
 

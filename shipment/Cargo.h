@@ -17,12 +17,17 @@ private:
 	double DIST; // cargo distance in KM
 	double LT;   // time to load or unload a cargo in hours
 	double COST;
+	
 
 protected:
 	static int ID;
 	int TruckID;
 	cTime waitingtime;
 	cTime deliverytime;
+	static int totalnumberofcargos;
+	static int total_num_VIP_cargos;
+	static int total_num_normal_cargos;
+	static int total_num_special_cargos;
 public:
 	Cargo();
 	Cargo(string TYP, cTime time, int ID, double DIST, double LT, double COST);
@@ -53,4 +58,9 @@ public:
 	Truck* getPTruck();*/
 	void setdeliverytime(cTime Movetime, int speed);
 	cTime getdeliverytime();
+
+	static int getTotalNumCargos();
+	static int getTotalNum_VIP_Cargos();
+	static int getTotalNum_normal_Cargos();
+	static int getTotalNum_special_Cargos();
 };
