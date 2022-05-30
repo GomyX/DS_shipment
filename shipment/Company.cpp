@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Company.h"
 //#include "Events.h"
-//#include "Cargo.h"
+#include "Cargo.h"
 #include "Truck.h"
 
 using namespace std;
@@ -265,12 +265,32 @@ void Company::SavingOutfile()
 	for (int i = 0; i < DeliveredCargos.GetCount(); i++) {
 		DeliveredCargos.dequeue(c);
 
-		file << c->getdeliverytime().Day << ":" << c->getdeliverytime().Hour << "\t"
+	   file << c->getdeliverytime().Day << ":" << c->getdeliverytime().Hour << "\t"
 			<< c->getcargoID() << "\t"
 			<< c->getpreptime().Day << ":" << c->getpreptime().Day << "\t"
 			<< c->getwaitingtime().Day << ":" << c->getwaitingtime().Hour << "\t"
 			<< c->getTruckID();
 	}
+
+	file << "---------------------------------";
+	file << "---------------------------------";
+	
+	file <<"Cargos: " <<Cargo::getTotalNumCargos 
+		 << "[N: " << Cargo::getTotalNum_normal_Cargos()
+		 << ",S: " << Cargo::getTotalNum_special_Cargos()
+		 << ", V: " << Cargo::getTotalNum_VIP_Cargos()<<"]";
+
+
+
+	file << "cargos Avg Wait = " 
+		 << get_Cargo_Average_Wait().Day <<":"
+		 << get_Cargo_Average_Wait().Hour;
+
+	file << "Auto-promoted Cargos:";
+	file << "Trucks: ";
+	file << "Avg Active time =";
+	file << "Avg utilization";
+
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -541,5 +561,24 @@ void Company::AddEVT(Truck* name)
 {
 	if (name)
 		EmptyVIPTruck.enqueue(name);
+	
 }
 ////////////////////////////////////////////////////////
+int Company::calculatehours(cTime time)
+{
+	return time.Day * 24 + time.Hour;
+}
+
+
+cTime Company::get_Cargo_Average_Wait() {
+	int h = 0;
+	Cargo* c = nullptr;
+	for (int i = 0; i < DeliveredCargos.GetCount(); i++) {
+		DeliveredCargos.dequeue(c);
+
+		h = h + calculatehours(c->getwaitingtime());
+	}
+	cargoaveragewait.Day = h / 24;
+	cargoaveragewait.Hour = h & 24;
+	return cargoaveragewait;
+}

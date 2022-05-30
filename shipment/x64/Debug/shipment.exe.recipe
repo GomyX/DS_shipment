@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
+      <FullPath>C:\Users\NVIDIA\Desktop\finaal\DS_shipment\x64\Debug\shipment.exe</FullPath>
+=======
       <FullPath>C:\Users\iTs\Documents\c++\Shipment\Shipment DS last\DS_shipment\x64\Debug\shipment.exe</FullPath>
+>>>>>>> 72b48d3b05c08467e0ebaa7499f2ff0a600fd4fa
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

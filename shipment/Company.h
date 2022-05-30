@@ -24,13 +24,13 @@ private:
 	int numEvents;
 	int waitingCargoTime;
 	cTime now;
-
+	//int totalnumofcargos;
 
 	/// <summary>
 	/// To check if any another truck is loading or not
 	/// </summary>
 
-	
+	cTime  cargoaveragewait;
 
 	int AutoP, MaxW, N, S, V, NTC, STC, VTC ,J;
 	//maint_time check_up;
@@ -178,7 +178,10 @@ public:
 
 	//void simulation();
 
-	
+	//int CalculateTotalNoOfcCargos();
+
+	cTime get_Cargo_Average_Wait();
+	int calculatehours(cTime time);
 };
 
 
