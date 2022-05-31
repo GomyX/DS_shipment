@@ -39,7 +39,7 @@ void cancelEvent::execute()
 	//pComp->DeleteNCargoByID(this->ID);
 
 }
-;
+
 
 //template <typename T>
 //Cargo* cancelEvent::execute() {

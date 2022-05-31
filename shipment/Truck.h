@@ -20,6 +20,8 @@ private:
 	int static total_number_of_normaltrucks;
 	int static total_number_of_specialtrucks;
 	int static total_number_of_VIPtrucks;
+protected :
+	priQ<Cargo*>* Tuck_cargos = new priQ<Cargo*>;
 
 public:
 	
@@ -55,7 +57,7 @@ public:
 	void setTruck_ID(int id);
 	int getTruck_ID()const;
 
-	double calculateP();
+	
 
 
 
@@ -64,6 +66,7 @@ public:
 	static int get_num_Of_specialTrucks();
 	static int get_num_Of_VIPTrucks();
 	static int get_total_num_Of_Trucks();
-
-
+	bool isloaded();
+	double calculateP();
+	
 };

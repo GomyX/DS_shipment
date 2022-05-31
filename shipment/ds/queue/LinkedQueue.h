@@ -195,6 +195,8 @@ LinkedQueue<T>::~LinkedQueue()
 
 
 
+
+//
 //template<typename T>
 //bool Delete(T item) {
 //	Node<T>* current = this->Head;
@@ -220,4 +222,6 @@ LinkedQueue<T>::~LinkedQueue()
 //		current = current->getNext();
 //	}
 //	return false;
+//}
+
 //}

@@ -13,7 +13,6 @@ int main() {
 	cout << "Omar";
 
 
-
 //--------------------------------------------------------------------check of the stack----------------------------------------------------------
 		//Declare a Stack of integers named "S" and with max size = 10 elements
 	//ArrayStack<int> S(10);
