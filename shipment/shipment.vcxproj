@@ -152,6 +152,7 @@
     <ClInclude Include="ds\stack\StackADT.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="Truck.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cargo.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="Events.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Truck.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ayyad.txt" />

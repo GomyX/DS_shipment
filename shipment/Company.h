@@ -30,14 +30,14 @@ private:
 	/// To check if any another truck is loading or not
 	/// </summary>
 
+	int countAutoPromote;
+
 	cTime  cargoaveragewait;
 
 	int AutoP, MaxW, N, S, V, NTC, STC, VTC ,J;
 	//maint_time check_up;
 
 protected:
-
-
 
 	
 	Truck* loadingvip = nullptr;
@@ -49,7 +49,6 @@ protected:
 
 	//waiting cargos vip priQueue
 	priQ <Cargo*> WaitingVipCargo;
-
 	LinkedList <Cargo*> WaitingNormalCargo;
 	LinkedQueue <Cargo*> WaitingSpecialCargo;
 
@@ -71,6 +70,8 @@ public:
 	
 	Company();
 	void incrementNow();
+	int calcTotHours();
+
 	void simulation();
 	void runEvent();
 	bool checkOnHours();
@@ -83,6 +84,8 @@ public:
 	void LoadVCargos();
 	void LoadSCargos();
 	void LoadNCargos();
+
+	void maxW();
 	/*
 	-at start ,it loads the available trucks form the file
 	-and make a list of cargos based on the TC of each type
@@ -156,8 +159,12 @@ public:
 	void LoadingInFile();
 	void SavingOutfile();
 
-	//void DeleteNCargoByID(int id);
-	//void prompoteCargo(int id, double amount);
+	void AutoPromotion();
+	double calculateInterval();
+
+
+	void DeleteNCargoByID(int id);
+	void prompoteCargo(int id, double amount);
 
 	//int getAutoP();
 	//int getMaxW();	
@@ -186,33 +193,3 @@ public:
 };
 
 
-//void Company::DeleteNCargoByID(int id)
-//{
-//	Node<Cargo*>* ptr;
-//	ptr = WaitingNormalCargo.getHead();
-//	while (ptr) {
-//		if (ptr->getItem()->getcargoID() == id) {
-//			WaitingNormalCargo.DeleteNode(ptr);
-//		}
-//		else {
-//			ptr = ptr->getNext();
-//		}
-//	}
-//}
-
-
-//void Company::prompoteCargo(int id, double amount)
-//{
-//	Node<Cargo*>* ptr;
-//	ptr = WaitingNormalCargo.getHead();
-//	while (ptr) {
-//		if (ptr->getItem()->getcargoID() == id) {
-//			ptr->getItem()->setcargoType("V");
-//			ptr->getItem()->setExtramoney(amount);
-//			WaitingNormalCargo.DeleteNode(ptr);
-//			WaitingVipCargo.insert(ptr, ptr->getItem()->calculatePriorty());
-//		}
-//		else
-//			ptr->getNext();
-//	}
-//}

@@ -121,6 +121,7 @@ int Truck::getTruck_ID() const
 }
 
 
+
 //
 //int Truck::getSpeed() const
 //{
