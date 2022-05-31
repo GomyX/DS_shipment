@@ -34,10 +34,12 @@ void UI::playInteractive()
 
 void UI::playstep()
 {
+
 }
 
 void UI::playSilence()
 {
+
 }
 
 void UI::setMode(string s) {
