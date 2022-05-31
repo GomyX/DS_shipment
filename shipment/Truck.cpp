@@ -1,5 +1,13 @@
 #include "Truck.h"
 
+int Truck::total_number_of_normaltrucks = 0;
+int Truck::total_number_of_specialtrucks = 0;
+int Truck::total_number_of_VIPtrucks = 0;
+
+int Truck::total_number_of_trucks = 0;
+
+
+
 Truck::Truck()
 {
 }
@@ -12,6 +20,10 @@ Truck::Truck(string TYP,int maint_time, int CPT, int speed, int J)
     this->setSpeed(speed);
     this->J = J;
    // Cargo c[getTruck_Capacity()];
+    total_number_of_trucks++;
+    if (TYP == "N") { total_number_of_normaltrucks++; }
+    if (TYP == "S") { total_number_of_specialtrucks++; }
+    if (TYP == "V") { total_number_of_VIPtrucks++; }
 }
 
 void Truck::setTruck_TYP(string t)
@@ -60,8 +72,8 @@ int Truck::getDeliv_int() const
 
 void Truck::AssignCargo(Cargo* name)
 {
-    if (CargoList.GetCount() < this->getTruck_Capacity()) {
-        CargoList.insert(name, name->calculatePriorty());
+    if (CargoList->GetCount() < this->getTruck_Capacity()) {
+        CargoList->insert(name, name->calculatePriorty());
     }
     else
         cout << "Truck is fully loaded";
@@ -87,12 +99,36 @@ void Truck::AssignCargo(Cargo* name)
 //}
 //
 
+int Truck::getSpeed() const
+{
+    return speed;
+}
 
 void Truck::setSpeed(int s)
 {
     this->speed = s;
 }
 
+void Truck::setTruck_ID(int id)
+{
+    ID = id;
+}
+
+
+int Truck::getTruck_ID() const
+{
+    return ID;
+}
+double Truck::calculateP()
+{
+
+    //Cargo* t;
+    //double P;
+    //for (int i = 0; i < CargoList->GetCount(); i++) {
+    //    t = CargoList->peek();
+    //}
+    return 0.0;
+}
 
 //
 //int Truck::getSpeed() const
@@ -104,6 +140,23 @@ void Truck::setSpeed(int s)
 //{
 //    return c[i];
 //}
+
+ int  Truck::get_num_Of_normalTrucks ()
+{
+    return total_number_of_normaltrucks;
+}
+int  Truck:: get_num_Of_specialTrucks()
+{
+    return total_number_of_specialtrucks;
+}
+int Truck::get_num_Of_VIPTrucks() 
+{
+    return total_number_of_VIPtrucks ;
+}
+int Truck::get_total_num_Of_Trucks() 
+{
+    return total_number_of_trucks ;
+}
 
 
 

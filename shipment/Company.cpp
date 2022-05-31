@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Company.h"
 //#include "Events.h"
-//#include "Cargo.h"
+#include "Cargo.h"
 #include "Truck.h"
 #include"UI.h"
 
@@ -139,8 +139,6 @@ void Company::LoadSCargos() {
 
 void Company::LoadNCargos()
 {
-
-
 		Truck* T = nullptr;
 
 		this->EmptyNormalTruck.peek(T);
@@ -155,8 +153,6 @@ void Company::LoadNCargos()
 				delete T;
 			}
 		}
-	
-
 }
 
 //void Company::maxW()
@@ -190,7 +186,6 @@ bool Company::checkOnHours()
 
 
 
-
 void Company::LoadingInFile()
 {
 	ifstream file;
@@ -207,6 +202,8 @@ void Company::LoadingInFile()
 
 	int AutoP, MaxW;
 	file >> AutoP >> MaxW; //reading the promotion time and the maximum wait time
+	setMaxW(MaxW);
+	setAutoP(AutoP);
 	
 
 	for (int i = 0; i < N; i++) {
@@ -254,9 +251,10 @@ void Company::LoadingInFile()
 			file >> x.Day >> drop_it >> x.Hour >> ID;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			/*cancelEvent* PcancelEvent = new cancelEvent(ID , x,this);
+			cancelEvent* PcancelEvent = new cancelEvent(ID , x,this);
 			EventList.enqueue(PcancelEvent);
-			PcancelEvent->execute();*/
+			PcancelEvent->execute();
+
 		}
 		if (Status == "P") {
 			file >> x.Day >> drop_it >> x.Hour >> ID >> extramoney;
@@ -275,7 +273,37 @@ void Company::SavingOutfile()
 	file.open("ayyad2.txt");
 	file << "CDT" << "\t" << "CID" << "\t" << "PT" << "\t" << "WT" << "\t" << "TID";
 
+	Cargo* c = nullptr;
 	file << "---------------------------------";
+	for (int i = 0; i < DeliveredCargos.GetCount(); i++) {
+		DeliveredCargos.dequeue(c);
+
+	   file << c->getdeliverytime().Day << ":" << c->getdeliverytime().Hour << "\t"
+			<< c->getcargoID() << "\t"
+			<< c->getpreptime().Day << ":" << c->getpreptime().Day << "\t"
+			<< c->getwaitingtime().Day << ":" << c->getwaitingtime().Hour << "\t"
+			<< c->getTruckID();
+	}
+
+	file << "---------------------------------";
+	file << "---------------------------------";
+	
+	file <<"Cargos: " <<Cargo::getTotalNumCargos 
+		 << "[N: " << Cargo::getTotalNum_normal_Cargos()
+		 << ",S: " << Cargo::getTotalNum_special_Cargos()
+		 << ", V: " << Cargo::getTotalNum_VIP_Cargos()<<"]";
+
+
+
+	file << "cargos Avg Wait = " 
+		 << get_Cargo_Average_Wait().Day <<":"
+		 << get_Cargo_Average_Wait().Hour;
+
+	file << "Auto-promoted Cargos:";
+	file << "Trucks: ";
+	file << "Avg Active time =";
+	file << "Avg utilization";
+
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -320,6 +348,24 @@ bool Company::checkloadnormal()
 }
 
 /////////////////////////////////////////////////////////////////////////
+
+int Company::getMaxW()
+{
+	return this->MaxW;
+}
+
+void Company::setMaxW(int max) {
+	this->MaxW = max;
+}
+
+int Company::getAutoP()
+{
+	return this->AutoP;
+}
+
+void Company::setAutoP(int hour) {
+	this->AutoP = hour;
+}
 
 //int Company::getAutoP()
 //{
@@ -528,5 +574,24 @@ void Company::AddEVT(Truck* name)
 {
 	if (name)
 		EmptyVIPTruck.enqueue(name);
+	
 }
 ////////////////////////////////////////////////////////
+int Company::calculatehours(cTime time)
+{
+	return time.Day * 24 + time.Hour;
+}
+
+
+cTime Company::get_Cargo_Average_Wait() {
+	int h = 0;
+	Cargo* c = nullptr;
+	for (int i = 0; i < DeliveredCargos.GetCount(); i++) {
+		DeliveredCargos.dequeue(c);
+
+		h = h + calculatehours(c->getwaitingtime());
+	}
+	cargoaveragewait.Day = h / 24;
+	cargoaveragewait.Hour = h & 24;
+	return cargoaveragewait;
+}

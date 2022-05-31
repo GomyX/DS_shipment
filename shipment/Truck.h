@@ -13,15 +13,22 @@ private:
 	int speed;
 	int deliv_int;
 	int J;					//num of times before maintenence  form the input file 
-	
-public:
+	int ID;
 
+
+	int static total_number_of_trucks;
+	int static total_number_of_normaltrucks;
+	int static total_number_of_specialtrucks;
+	int static total_number_of_VIPtrucks;
+
+public:
+	
 	Truck();
 	Truck(string TYP,int maint_time,int CPT, int speed, int J);
 
 
 	//priQueue for cargos
-	priQ <Cargo*> CargoList;
+	priQ <Cargo*>* CargoList;
 
 	void setTruck_TYP(string t);
 	string getTruck_TYP()const;
@@ -40,7 +47,23 @@ public:
 	void AssignCargo(Cargo* name);
 
 	void setSpeed(int s);
+	int getSpeed()const;
 	//int getSpeed()const;
 
 	//Cargo getCargos(int i);
+
+	void setTruck_ID(int id);
+	int getTruck_ID()const;
+
+	double calculateP();
+
+
+
+
+	static int get_num_Of_normalTrucks();
+	static int get_num_Of_specialTrucks();
+	static int get_num_Of_VIPTrucks();
+	static int get_total_num_Of_Trucks();
+
+
 };
