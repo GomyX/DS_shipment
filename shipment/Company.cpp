@@ -582,3 +582,36 @@ cTime Company::get_Cargo_Average_Wait() {
 	cargoaveragewait.Hour = h & 24;
 	return cargoaveragewait;
 }
+
+
+void Company::moveAtruck() {
+	Truck* truck = nullptr ;
+	for (int i = 0; i < EmptyNormalTruck.GetCount(); i++ ) {
+		EmptyNormalTruck.peek(truck);
+		if (truck->isloaded()) {
+			EmptyNormalTruck.dequeue(truck);
+			MovingTrucks.insert(truck, truck->calculateP());
+
+		}
+	}
+
+	for (int i = 0; i < EmptySpecialTruck.GetCount(); i++) {
+		EmptySpecialTruck.peek(truck);
+		if (truck->isloaded()) {
+			EmptySpecialTruck.dequeue(truck);
+			MovingTrucks.insert(truck, truck->calculateP());
+
+		}
+	}
+	for (int i = 0; i < EmptyVIPTruck.GetCount(); i++) {
+		EmptyVIPTruck.peek(truck);
+		if (truck->isloaded()) {
+			EmptyVIPTruck.dequeue(truck);
+			MovingTrucks.insert(truck, truck->calculateP());
+
+		}
+	}
+
+
+
+}

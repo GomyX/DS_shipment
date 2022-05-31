@@ -119,16 +119,7 @@ int Truck::getTruck_ID() const
 {
     return ID;
 }
-double Truck::calculateP()
-{
 
-    //Cargo* t;
-    //double P;
-    //for (int i = 0; i < CargoList->GetCount(); i++) {
-    //    t = CargoList->peek();
-    //}
-    return 0.0;
-}
 
 //
 //int Truck::getSpeed() const
@@ -158,7 +149,24 @@ int Truck::get_total_num_Of_Trucks()
     return total_number_of_trucks ;
 }
 
+double Truck::calculateP()
+{
+    Cargo* pCargo;
+    CargoList->peek(pCargo);
+    if (pCargo) {
+        return  pCargo->calculatePriorty();
+    }
+    else return 0.0;
+}
+bool Truck::isloaded() {
 
+    if (getTruck_Capacity() == Tuck_cargos->GetCount()) {
+
+        return true;
+    }
+    return false;
+
+}
 
 
 

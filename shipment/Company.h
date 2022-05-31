@@ -61,7 +61,7 @@ protected:
 	LinkedQueue <Truck*> EmptyVIPTruck;
 
 	//moving trucks priQueue
-	priQ <Truck*> MovingTruck;
+	priQ <Truck*> MovingTrucks;
 
 	LinkedQueue <Truck*> MaintNormalTruck;
 	LinkedQueue <Truck*> MaintSpecialTruck;
@@ -182,6 +182,7 @@ public:
 
 	cTime get_Cargo_Average_Wait();
 	int calculatehours(cTime time);
+	void moveAtruck();
 };
 
 
