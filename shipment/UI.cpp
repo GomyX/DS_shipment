@@ -12,10 +12,10 @@ void UI::playmode()
 	cout << "//////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" << endl;
 	cout << "-----------------enter the mode you want to run on !-->>>>    (interactive,silence,step-by-step)" << endl;
 	cin >> s;
-	while (s != "interactive" || s != "step-by-step" || s != "silence") {
-		cout << "-----------------enter the mode you want to run on !-->>>>    (interactive,silence,step-by-step)" << endl;
-		cin >> s;
-	}
+	//while (s != "interactive" || s != "step-by-step" || s != "silence") {
+	//	cout << "-----------------enter the mode you want to run on !-->>>>    (interactive,silence,step-by-step)" << endl;
+	//	cin >> s;
+	//}
 	if (s == "interactive") {
 		playInteractive();
 	}
