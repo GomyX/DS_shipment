@@ -36,6 +36,8 @@ int Company::calcTotHours()
 void Company::simulation()
 {	
 	this->incrementNow();
+
+
 	while (checkOnHours()) {
 
 		this->runEvent();
