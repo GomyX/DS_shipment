@@ -205,29 +205,29 @@ LinkedQueue<T>::~LinkedQueue()
 #endif
 
 
-template<typename T>
-bool Delete(T item) {
-	Node<T>* current = this->Head;
-	Node<T>* prev = this->Head;
-	while (current) {
-		if (current->getItem() == item) {
-			Node<T>* next = current->getNext();
-			if (current == this->Head) {
-				delete this->Head;
-				this->Head = nullptr;
-				this->Head = next;
-			}
-			else {
-				delete current;
-				current = nullptr;
-				prev->setNext(next);
-			}
-			return true;
-		}
-		else {
-			prev = current;
-		}
-		current = current->getNext();
-	}
-	return false;
-}
+//template<typename T>
+//bool Delete(T item) {
+//	Node<T>* current = this->Head;
+//	Node<T>* prev = this->Head;
+//	while (current) {
+//		if (current->getItem() == item) {
+//			Node<T>* next = current->getNext();
+//			if (current == this->Head) {
+//				delete this->Head;
+//				this->Head = nullptr;
+//				this->Head = next;
+//			}
+//			else {
+//				delete current;
+//				current = nullptr;
+//				prev->setNext(next);
+//			}
+//			return true;
+//		}
+//		else {
+//			prev = current;
+//		}
+//		current = current->getNext();
+//	}
+//	return false;
+//}

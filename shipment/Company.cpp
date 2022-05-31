@@ -4,12 +4,14 @@
 //#include "Events.h"
 //#include "Cargo.h"
 #include "Truck.h"
+#include"UI.h"
 
 using namespace std;
 
 
 Company::Company()
 {
+	UI* Ui=new UI();
 	this->LoadingInFile();
 	now.Day = 0;
 	now.Hour = 0;
@@ -24,6 +26,11 @@ void Company::incrementNow()
 	{
 		this->now.Day += 1;
 	}
+}
+
+int Company::calcTotHours()
+{
+	return now.Day * 24 + now.Hour;
 }
 
 void Company::simulation()
@@ -151,6 +158,12 @@ void Company::LoadNCargos()
 	
 
 }
+
+//void Company::maxW()
+//{
+//	if (calcTotHours() = MaxW);
+//
+//}
 
 
 void Company::runEvent()

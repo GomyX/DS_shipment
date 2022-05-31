@@ -68,6 +68,8 @@ protected:
 public:
 	Company();
 	void incrementNow();
+	int calcTotHours();
+
 	void simulation();
 	void runEvent();
 	bool checkOnHours();
@@ -80,6 +82,8 @@ public:
 	void LoadVCargos();
 	void LoadSCargos();
 	void LoadNCargos();
+
+	void maxW();
 	/*
 	-at start ,it loads the available trucks form the file
 	-and make a list of cargos based on the TC of each type
