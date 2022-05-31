@@ -14,6 +14,7 @@ Company::Company()
 	now.Day = 0;
 	now.Hour = 0;
 	//this->LoadingInFile();
+	this->countAutoPromote = 0;
 }
 
 void Company::incrementNow()
@@ -247,8 +248,9 @@ void Company::LoadingInFile()
 			file >> x.Day >> drop_it >> x.Hour >> ID >> extramoney;
 			//setMaxDay(x.Day);
 			//setMaxHour(x.Hour);
-			/*promoteEvent* PpromoteEvent = new promoteEvent(ID, x, extramoney,this);
-			EventList.enqueue(PpromoteEvent);*/
+			promoteEvent* PpromoteEvent = new promoteEvent(ID,  extramoney,this);
+			EventList.enqueue(PpromoteEvent);
+			PpromoteEvent->execute();
 		}
 	}
 }
@@ -291,6 +293,33 @@ void Company::SavingOutfile()
 	file << "Avg Active time =";
 	file << "Avg utilization";
 
+}
+
+
+double Company::calculateInterval() {
+	/*double interval;
+	Node<Cargo*>* ptr = WaitingNormalCargo->getHead();
+	while (ptr) {
+		Cargo* pCargo = ptr->getItem();
+		interval = (this->now.Day) - pCargo->getpreptime().Day;
+	}
+	return interval;*/
+	return 0.0;
+}
+
+void Company::AutoPromotion()
+{
+	/*Node<Cargo*>* ptr = WaitingNormalCargo->getHead();
+	while (ptr) {
+		Cargo* pCargo = ptr->getItem();
+		double interval = calculateInterval();
+		if (interval >= this->getAutoP()) {
+			WaitingNormalCargo->DeleteNode(pCargo);
+			WaitingVipCargo.insert(pCargo, pCargo->calculatePriorty());
+		}
+		ptr = ptr->getNext();
+		countAutoPromote += 1;
+	}*/
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -577,8 +606,43 @@ cTime Company::get_Cargo_Average_Wait() {
 		DeliveredCargos.dequeue(c);
 
 		h = h + calculatehours(c->getwaitingtime());
+		
 	}
+	h =  h / DeliveredCargos.GetCount();
 	cargoaveragewait.Day = h / 24;
-	cargoaveragewait.Hour = h & 24;
+	cargoaveragewait.Hour = h % 24;
 	return cargoaveragewait;
+}
+
+
+
+
+void Company::DeleteNCargoByID(int id)
+{
+	/*Node<Cargo*>* ptr;
+	ptr = WaitingNormalCargo->getHead();
+	while (ptr) {
+		if (ptr->getItem()->getcargoID() == id) {
+			WaitingNormalCargo->DeleteNode(ptr);
+		}
+		else {
+			ptr = ptr->getNext();
+		}
+	}*/
+}
+
+
+void Company::prompoteCargo(int id, double amount)
+{
+	/*Node<Cargo*>* ptr =WaitingNormalCargo->getHead();
+	while (ptr) {
+		if (ptr->getItem()->getcargoID() == id) {
+			ptr->getItem()->setcargoType("V");
+			ptr->getItem()->setExtramoney(amount);
+			WaitingNormalCargo->DeleteNode(ptr);
+			WaitingVipCargo.insert(ptr->getItem(), ptr->getItem()->calculatePriorty());
+		}
+		else
+			ptr->getNext();
+	}*/
 }

@@ -193,9 +193,7 @@ LinkedQueue<T>::~LinkedQueue()
 
 #endif
 
-<<<<<<< HEAD
 
-=======
 //
 //template<typename T>
 //bool Delete(T item) {
@@ -223,4 +221,4 @@ LinkedQueue<T>::~LinkedQueue()
 //	}
 //	return false;
 //}
->>>>>>> 72b48d3b05c08467e0ebaa7499f2ff0a600fd4fa
+
