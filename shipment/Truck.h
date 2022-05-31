@@ -21,7 +21,7 @@ private:
 	int static total_number_of_specialtrucks;
 	int static total_number_of_VIPtrucks;
 protected :
-	priQ<Cargo*>* Tuck_cargos = new priQ<Cargo*>;
+	priQ<Cargo*>* Truck_cargos = new priQ<Cargo*>;
 
 public:
 	

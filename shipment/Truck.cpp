@@ -161,7 +161,7 @@ double Truck::calculateP()
 }
 bool Truck::isloaded() {
 
-    if (getTruck_Capacity() == Tuck_cargos->GetCount()) {
+    if (getTruck_Capacity() == Truck_cargos->GetCount()) {
 
         return true;
     }

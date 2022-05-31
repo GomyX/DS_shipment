@@ -659,3 +659,20 @@ void Company::moveAtruck() {
 
 
 }
+
+
+void Company::deliver_cargos() {
+	//Truck* T = nullptr;
+	//Cargo* C = nullptr;
+	//MovingTrucks.peek(T);
+	//if (T != nullptr) {
+	//	T.
+	//		Truck_cargos
+
+	//}
+
+	
+
+
+
+}

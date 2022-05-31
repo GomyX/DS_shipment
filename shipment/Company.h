@@ -190,6 +190,7 @@ public:
 	cTime get_Cargo_Average_Wait();
 	int calculatehours(cTime time);
 	void moveAtruck();
+	void deliver_cargos();
 };
 
 
