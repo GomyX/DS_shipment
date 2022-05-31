@@ -47,7 +47,12 @@ public:
 	int sum_load();
 
 	void AssignCargo(Cargo* name);
-
+	int getJ() {
+		return this->J;
+	}
+	void setJ(int J) {
+		this->J = J;
+	}
 	void setSpeed(int s);
 	int getSpeed()const;
 	//int getSpeed()const;

@@ -10,5 +10,9 @@ public:
 	void setMode(string s);
 	string getMode();
 	void playmode();
+
+	void playInteractive();
+	void playstep();
+	void playSilence();
 };
 
