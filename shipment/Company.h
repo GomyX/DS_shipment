@@ -166,6 +166,11 @@ public:
 	void DeleteNCargoByID(int id);
 	void prompoteCargo(int id, double amount);
 
+	void movetoMaint();
+	void moveNtoAvail();
+	void moveStoAvail();
+	void moveVtoAvail();
+
 	//int getAutoP();
 	//int getMaxW();	
 	//int getN();

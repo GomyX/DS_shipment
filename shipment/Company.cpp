@@ -318,7 +318,9 @@ double Company::calculateInterval() {
 		Cargo* pCargo = ptr->getItem();
 		interval = (this->now.Day) - pCargo->getpreptime().Day;
 	}
-	return interval;*/
+	return interval;
+	free (ptr);
+	*/
 	return 0.0;
 }
 
@@ -334,7 +336,9 @@ void Company::AutoPromotion()
 		}
 		ptr = ptr->getNext();
 		countAutoPromote += 1;
-	}*/
+		
+	}
+	free (ptr);*/
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -660,4 +664,85 @@ void Company::moveAtruck() {
 
 
 
+}
+
+
+void Company::DeleteNCargoByID(int id)
+{
+//	Node<Cargo*>* ptr;
+//	ptr = WaitingNormalCargo.getHead();
+//	while (ptr) {
+//		if (ptr->getItem()->getcargoID() == id) {
+//			WaitingNormalCargo.DeleteNode(ptr);
+//		}
+//		else {
+//			ptr = ptr->getNext();
+//		}
+//	}
+}
+
+
+void Company::prompoteCargo(int id, double amount)
+{
+//	Node<Cargo*>* ptr;
+//	ptr = WaitingNormalCargo.getHead();
+//	while (ptr) {
+//		if (ptr->getItem()->getcargoID() == id) {
+//			ptr->getItem()->setcargoType("V");
+//			ptr->getItem()->setExtramoney(amount);
+//			WaitingNormalCargo.DeleteNode(ptr);
+//			WaitingVipCargo.insert(ptr, ptr->getItem()->calculatePriorty());
+//		}
+//		else
+//			ptr->getNext();
+//	}
+}
+
+void Company::movetoMaint()
+{
+	Truck* pTruck ;
+	MovingTrucks.peek(pTruck);
+	if (pTruck->getJ() >= this->J) {
+		MovingTrucks.dequeue(pTruck);
+		if (pTruck->getTruck_TYP() == "N") {
+			MaintNormalTruck.enqueue(pTruck);
+		}
+		if (pTruck->getTruck_TYP() == "S") {
+			MaintSpecialTruck.enqueue(pTruck);
+		}
+		if (pTruck->getTruck_TYP() == "V") {
+			MaintVIPTruck.enqueue(pTruck);
+		}
+	}
+	free(pTruck);
+}
+
+void Company::moveNtoAvail()
+{
+	Truck* pTruck;
+	MaintNormalTruck.peek(pTruck);
+	while (pTruck) {
+		MaintNormalTruck.dequeue(pTruck);
+		EmptyNormalTruck.enqueue(pTruck);
+	}
+
+}
+void Company::moveStoAvail()
+{
+	Truck* pTruck;
+	MaintSpecialTruck.peek(pTruck);
+	while (pTruck) {
+		MaintSpecialTruck.dequeue(pTruck);
+		MaintSpecialTruck.enqueue(pTruck);
+	}
+}
+
+void Company::moveVtoAvail()
+{
+	Truck* pTruck;
+	MaintVIPTruck.peek(pTruck);
+	while (pTruck) {
+		MaintVIPTruck.dequeue(pTruck);
+		MaintVIPTruck.enqueue(pTruck);
+	}
 }
