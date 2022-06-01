@@ -132,7 +132,6 @@ void Company::LoadSCargos() {
 				Cargo* c = nullptr;
 				this->WaitingSpecialCargo.dequeue(c);
 				T->AssignCargo(c);
-
 				delete c;
 				delete T;
 			}
@@ -313,25 +312,26 @@ void Company::SavingOutfile()
 
 double Company::calculateInterval() {
 	/*double interval;
-	Node<Cargo*>* ptr = WaitingNormalCargo->getHead();
+	Node<Cargo*>* ptr = WaitingNormalCargo.getHead();
 	while (ptr) {
 		Cargo* pCargo = ptr->getItem();
 		interval = (this->now.Day) - pCargo->getpreptime().Day;
+		ptr = ptr->getNext();
 	}
 	return interval;
-	free (ptr);
-	*/
+	free (ptr);*/
+	
 	return 0.0;
 }
 
 void Company::AutoPromotion()
 {
-	/*Node<Cargo*>* ptr = WaitingNormalCargo->getHead();
+	/*Node<Cargo*>* ptr = WaitingNormalCargo.getHead();
 	while (ptr) {
 		Cargo* pCargo = ptr->getItem();
 		double interval = calculateInterval();
 		if (interval >= this->getAutoP()) {
-			WaitingNormalCargo->DeleteNode(pCargo);
+			WaitingNormalCargo.DeleteNode(pCargo);
 			WaitingVipCargo.insert(pCargo, pCargo->calculatePriorty());
 		}
 		ptr = ptr->getNext();
@@ -698,7 +698,7 @@ void Company::prompoteCargo(int id, double amount)
 //	}
 }
 
-}
+
 
 
 void Company::deliver_cargos() {

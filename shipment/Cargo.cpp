@@ -64,7 +64,6 @@ void Cargo::setpreptime(cTime time) {
 
 cTime Cargo::getpreptime() {
 	return preptime;
-
 }
 
 
